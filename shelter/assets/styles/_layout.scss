@@ -1,0 +1,35 @@
+@import 'variables';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: $main-font, $paragraph-font, sans-serif;
+    scroll-behavior: smooth;
+}
+
+a,
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+img,
+svg {
+    max-width: 100%;
+}
+.hero-background {
+    background: url("../../../shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
+    background-size: cover;
+    /* padding-left: $container-padding;
+    padding-right: $container-padding; */
+}

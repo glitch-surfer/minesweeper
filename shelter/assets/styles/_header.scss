@@ -1,0 +1,52 @@
+@import 'variables';
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $max-width-minus-pad;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 90px;
+}
+
+.nav {
+    display: flex;
+    gap: 36px;
+}
+
+.logo {
+
+    &__title {
+        font-size: 32px;
+        line-height: 110%;
+        letter-spacing: 0.06em;
+        color: $main-color;
+        margin-bottom: 10px;
+    }
+
+    &__subtitle {
+        font-family: $paragraph-font;
+        padding-left: 4px;
+        font-size: 13px;
+        line-height: 15px;
+        letter-spacing: 0.1em;
+        color: $white;
+    }
+}
+
+.nav {
+    @include text;
+    color: $header-text-color;
+    
+    &__item {
+        border-bottom: 3px solid transparent;
+        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    }
+    &__is-active {
+        color: $card-color;
+        border-color: $main-color;
+        pointer-events: none;
+    }
+    
+}

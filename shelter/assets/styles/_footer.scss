@@ -1,0 +1,62 @@
+@import 'variables';
+
+.footer {
+    background: url('../../../shelter/assets/img/footer-background.png') center, no-repeat;
+    background-size: cover;
+    scroll-behavior: smooth;
+
+    &__wraper {
+        padding: 56px 40px 64px;
+        max-width: $max-width;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 278px 302px 25%;
+        grid-template-rows: 90px 113px;
+        grid-auto-flow: column;
+        gap: 34px 160px;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @include title;
+
+        color: $white;
+        width: 280px;
+    }
+
+    &__item {
+        font-size: 20px;
+        line-height: 115%;
+        letter-spacing: 0.06em;
+        color: #F1CDB3;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border-bottom: 3px solid transparent;
+        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+        &_email {
+            margin-top: 9px;
+        }
+    }
+
+    &__icon {
+        min-width: 22px;
+
+        & path {
+            transition: fill 0.3s ease-in-out;
+        }
+
+    }
+
+    &__img {
+        margin-top: -17px;
+        grid-area: 1/3;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
