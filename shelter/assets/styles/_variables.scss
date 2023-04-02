@@ -1,13 +1,23 @@
-/* sizes */
+//sizes
+
 $max-width: 1280px;
-$max-width-minus-pad: 1200px;
 $container-padding: 40px;
-/* fonts */
+$container-tablet-padding: 30px;
+$container-mobile-padding: 10px;
+$tablet-width: 950px;
+$mobile-width: 767px;
+$mobile-small-width: 450px;
+
+//fonts
+
 $main-font: 'Georgia';
 $paragraph-font: 'Arial';
-/* colors */
+
+//colors
+
 $main-color: #F1CDB3;
 $header-text-color: #CDCDCD;
+$text-color: #4C4C4C;
 $white: #FFFFFF;
 $btn-color: #F1CDB3;
 $title-color: #545454;
@@ -17,16 +27,37 @@ $legal-text-color: #B2B2B2;
 $color-dark: #292929;
 $btn-hovered-color: #FDDCC4;
 
-@mixin text {
-    font-family: $paragraph-font;
-    font-size: 15px;
-    line-height: 24px;
+//mixins
+
+@mixin font ($size: 15px, $height: 24px, $weight: 400, $family: $main-font) {
+    font-family: $family;
+    font-size: $size;
+    line-height: $height;
+    font-weight: $weight;
+
 }
 
-@mixin title {
-    font-weight: 400;
-    font-size: 35px;
-    line-height: 130%;
+//placeholder
+%title {
+    @include font ($size: 35px, $height: 130%);
     letter-spacing: 0.06em;
     color: $title-color;
+}
+
+%text {
+    @include font ($family: $paragraph-font)
+}
+%transition {
+    transition: all 0.3s ease-in-out;
+}
+
+//MEDIA
+@mixin media-tablet {
+    @media (max-width: $tablet-width) { @content;}
+}
+@mixin media-mobile-big {
+    @media (max-width: $mobile-width) { @content;}
+}
+@mixin media-mobile-small {
+    @media (max-width: $mobile-small-width) { @content;}
 }

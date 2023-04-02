@@ -1,61 +1,143 @@
-@import 'variables';
-
+/* FOOTER */
 .footer {
-    background: url('../../../shelter/assets/img/footer-background.png') center, no-repeat;
+    background: url('../../assets/img/footer-background.png') center, no-repeat;
     background-size: cover;
-    scroll-behavior: smooth;
+    @include media-tablet {
+        background: url('../../assets/img/footer-gradient-background-768.jpg') center, no-repeat;
+        background-size: cover;
+    }
+    @include media-mobile-small {
+        background: url('../../assets/img/footer-gradient-background-320.jpg') center, no-repeat;
+        background-size: cover;
+    }
+}
 
-    &__wraper {
-        padding: 56px 40px 56px;
-        max-width: $max-width;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 278px 302px 25%;
-        grid-template-rows: 90px 113px;
-        grid-auto-flow: column;
-        gap: 34px 160px;
-        justify-content: space-between;
+.footer__container {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+
+    @include media-tablet {
+        padding-top: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 60px 60px;
     }
 
-    &__title {
-        @include title;
-        color: $white;
-        width: 280px;
+    @include media-mobile-small {
+        gap: 37px;
     }
 
-    &__item {
-        font-size: 20px;
-        line-height: 115%;
-        letter-spacing: 0.06em;
-        color: #F1CDB3;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        border-bottom: 3px solid transparent;
-        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    /* display: grid;
+    grid-template-columns: 1fr 25% 25%;
+    grid-template-rows: 90px 113px;
+    grid-auto-flow: column;
+    gap: 34px 12.500vw;
+    justify-items: space-between; */
+}
 
-        &_email {
-            margin-top: 9px;
-        }
-    }
+.footer__contacts-wrapper {
+    max-width: 278px;
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
 
-    &__icon {
-        min-width: 22px;
-
-        & path {
-            transition: fill 0.3s ease-in-out;
-        }
-
-    }
-
-    &__img {
-        margin-top: -17px;
-        grid-area: 1/3;
-    }
-
-    &__nav {
+    .footer__nav {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: 40px;
+        @include media-mobile-small {
+            align-items: center
+        }
+    }
+
+    @include media-mobile-small {
+        align-items: center;
+        gap: 34px;
+    }
+}
+
+.footer__locations-wrapper {
+    max-width: 342px;
+    padding-top: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .footer__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 33px;
+        @include media-mobile-small {
+            gap: 36px;
+        }
+    }
+
+    @include media-tablet {
+        max-width: 302px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    @include media-mobile-small {
+        align-items: center;
+        padding-top: 0;
+        gap: 38px;
+    }
+}
+
+.footer__title {
+    @extend %title;
+    color: $white;
+    width: 280px;
+
+    @include media-mobile-small {
+        text-align: center;
+        font-size: 25px;
+    }
+}
+
+.footer__item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @include font ($size: 20px, $height: 115%);
+    letter-spacing: 0.06em;
+    color: #F1CDB3;
+    border-bottom: 3px solid transparent;
+    /* transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out; */
+    @extend %transition;
+
+    &_email {
+        margin-top: 9px;
+    }
+
+    &:hover {
+        color: $card-color;
+
+        & .footer__icon path {
+            fill: $card-color;
+        }
+    }
+}
+
+.footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer__icon {
+    min-width: 22px;
+
+    & path {
+        transition: fill 0.3s ease-in-out;
+    }
+}.footer__img {
+    @include media-mobile-small {
+        max-width: 87%;
     }
 }
