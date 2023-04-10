@@ -18,9 +18,7 @@
 }
 
 .nav_is-active {
-    color: $title-color;
-    border-color: $main-color;
-    pointer-events: none;
+    color: $color-dark;
 }
 
 .pets-nav-hover {
@@ -35,7 +33,4 @@
         color: $title-color;
         border-color: $main-color;
     }
-}
-.burger__line, .burger::after, .burger::before {
-    background-color: black;
 }
