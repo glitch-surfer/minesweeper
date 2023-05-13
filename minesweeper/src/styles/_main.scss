@@ -4,6 +4,7 @@
   border: 3px solid $border-color;
   border-radius: 5px;
 }
+
 .board {
   padding: 7px;
   display: flex;
@@ -11,10 +12,19 @@
   justify-content: center;
   gap: 2px;
 }
+
 .cell {
   width: 43px;
   height: 43px;
   background-color: $border-color;
   border: 2px solid $border-color;
   border-radius: 4px;
+}
+
+.bomb {
+  background: url('../assets/img/mine_icon.svg') center no-repeat transparent;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
 }
