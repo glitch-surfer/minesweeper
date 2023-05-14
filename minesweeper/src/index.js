@@ -5,12 +5,18 @@ import gameOver from './scripts/gameOver';
 import openCell from './scripts/openCell';
 import addMinesNumber from './scripts/addMinesNumber';
 
-const minesCount = 20;
+const minesCount = 99;
 
 generatePage();
-generateMines(minesCount);
-addMinesNumber();
-const board = document.querySelector('.board');
 
-board.addEventListener('click', gameOver);
+const board = document.querySelector('.board');
+const firstStep = (event) => {
+  board.removeEventListener('click', firstStep);
+  generateMines(minesCount, event);
+  addMinesNumber();
+};
+
+board.addEventListener('click', firstStep);
+
 board.addEventListener('click', openCell);
+board.addEventListener('click', gameOver);

@@ -46,7 +46,7 @@ const addMinesNumber = () => {
     const cell = item;
     if (!cell.childElementCount && surroundMinesCount[index]) {
       cell.dataset.number = surroundMinesCount[index];
-      /* cell.textContent = surroundMinesCount[index]; */
+      /* w */
     }
   });
 };
