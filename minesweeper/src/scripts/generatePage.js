@@ -16,7 +16,7 @@ const generateHeader = () => {
 
   const btn = document.createElement('btn');
   btn.classList.add('btn');
-  btn.textContent = 'reset';
+  btn.textContent = '😉';
 
   const timer = document.createElement('p');
   timer.classList.add('timer');
@@ -59,6 +59,7 @@ const generatePage = () => {
     generateMines(minesCount, event);
     addMinesNumber();
     setTimer();
+    document.querySelector('.btn').textContent = '😎';
   };
 
   board.addEventListener('click', firstStep);
