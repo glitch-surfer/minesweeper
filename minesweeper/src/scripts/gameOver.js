@@ -9,7 +9,7 @@ const gameOver = (event) => {
       const mine = item;
       mine.style.opacity = '1';
     });
-
+    clearInterval(document.timer);
     /* text.textContent = 'YOU LOSE!';
     text.style.color = 'red'; */
     document.querySelector('.board').removeEventListener('click', openCell);
@@ -19,6 +19,7 @@ const gameOver = (event) => {
     if (closedCells.length === 10) {
       /* text.textContent = 'YOU WIN!';
       text.style.color = 'green'; */
+      clearInterval(document.timer);
     }
   }
 };

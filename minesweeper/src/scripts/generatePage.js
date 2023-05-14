@@ -2,6 +2,7 @@ import generateMines from './generateMines';
 import gameOver from './gameOver';
 import openCell from './openCell';
 import addMinesNumber from './addMinesNumber';
+import setTimer from './timer';
 
 let minesCount = 10;
 
@@ -19,7 +20,7 @@ const generateHeader = () => {
 
   const timer = document.createElement('p');
   timer.classList.add('timer');
-  timer.textContent = 'timer: 10 sec';
+  timer.textContent = 'Timer: 0 sec';
 
   header.append(movesCount);
   header.append(btn);
@@ -57,6 +58,7 @@ const generatePage = () => {
     board.removeEventListener('click', firstStep);
     generateMines(minesCount, event);
     addMinesNumber();
+    setTimer();
   };
 
   board.addEventListener('click', firstStep);
@@ -64,6 +66,7 @@ const generatePage = () => {
   board.addEventListener('click', gameOver);
 
   document.querySelector('.btn').addEventListener('click', () => {
+    clearInterval(document.timer);
     document.querySelector('header').remove();
     document.querySelector('main').remove();
     generatePage();
