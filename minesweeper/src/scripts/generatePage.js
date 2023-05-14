@@ -1,3 +1,10 @@
+import generateMines from './generateMines';
+import gameOver from './gameOver';
+import openCell from './openCell';
+import addMinesNumber from './addMinesNumber';
+
+const minesCount = 99;
+
 const generateHeader = () => {
   const header = document.createElement('header');
   header.classList.add('header');
@@ -42,6 +49,24 @@ const generateMain = () => {
 const generatePage = () => {
   document.body.append(generateHeader());
   document.body.append(generateMain());
+
+  const board = document.querySelector('.board');
+
+  const firstStep = (event) => {
+    board.removeEventListener('click', firstStep);
+    generateMines(minesCount, event);
+    addMinesNumber();
+  };
+
+  board.addEventListener('click', firstStep);
+  board.addEventListener('click', openCell);
+  board.addEventListener('click', gameOver);
+
+  document.querySelector('.btn').addEventListener('click', () => {
+    document.querySelector('header').remove();
+    document.querySelector('main').remove();
+    generatePage();
+  });
 };
 
 export default generatePage;
