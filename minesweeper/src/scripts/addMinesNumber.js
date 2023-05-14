@@ -45,8 +45,9 @@ const addMinesNumber = () => {
 
   cells.forEach((item, index) => {
     const cell = item;
-    if (!cell.childElementCount) {
-      cell.textContent = surroundMinesCount[index];
+    if (!cell.childElementCount && surroundMinesCount[index]) {
+      /* cell.textContent = surroundMinesCount[index]; */
+      cell.dataset.number = surroundMinesCount[index];
     }
   });
 };
