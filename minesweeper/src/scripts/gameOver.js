@@ -1,8 +1,10 @@
+import openCell from './openCell';
+
 const gameOver = (event) => {
   if (event.target.classList.contains('bomb')) {
-    const bomb = document.querySelectorAll('.bomb');
+    const bombs = document.querySelectorAll('.bomb');
 
-    bomb.forEach((item) => {
+    bombs.forEach((item) => {
       const mine = item;
       mine.style.opacity = '1';
     });
@@ -10,6 +12,7 @@ const gameOver = (event) => {
     const text = document.querySelector('.mines-count');
     text.textContent = 'YOU LOSE!';
     text.style.color = 'red';
+    document.removeEventListener('click', openCell);
   }
 };
 

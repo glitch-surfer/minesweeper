@@ -1,4 +1,4 @@
-export const createMatrix = () => {
+const createMatrix = () => {
   const matrix = [];
   const cells = document.querySelectorAll('.cell');
   const matrixLineLength = Math.sqrt(cells.length);
@@ -15,10 +15,10 @@ export const createMatrix = () => {
   return matrix;
 };
 
-const getSurround = () => {
+const findEmptyCells = () => {
   const matrix = createMatrix();
   const surroundMinesCount = [];
-  // TODO: change 10 to variables
+
   for (let y = 0; y < 10; y += 1) {
     for (let x = 0; x < 10; x += 1) {
       const arr = [];
@@ -30,25 +30,12 @@ const getSurround = () => {
       arr.push(matrix[y + 1]?.[x + 1]);
       arr.push(matrix[y + 1]?.[x]);
       arr.push(matrix[y + 1]?.[x - 1]);
-      surroundMinesCount.push(arr
+      const normalizedArr = arr
         .filter((item) => item)
-        .filter((item) => item.childElementCount).length);
+        .filter((item) => !item.childElementCount && !item.dataset);
+      console.log(normalizedArr);
     }
   }
-
-  return surroundMinesCount;
 };
 
-const addMinesNumber = () => {
-  const cells = document.querySelectorAll('.cell');
-  const surroundMinesCount = getSurround();
-
-  cells.forEach((item, index) => {
-    const cell = item;
-    if (!cell.childElementCount && surroundMinesCount[index]) {
-      cell.dataset.number = surroundMinesCount[index];
-    }
-  });
-};
-
-export default addMinesNumber;
+export default findEmptyCells;
