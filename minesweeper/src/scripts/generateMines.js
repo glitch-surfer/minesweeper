@@ -1,10 +1,10 @@
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const generateRandomNumberArr = (count) => {
+const generateRandomNumberArr = (length) => {
   const arr = [];
 
-  while (arr.length < count) {
-    const number = getRandomNumber(0, count * count);
+  while (arr.length < length) {
+    const number = getRandomNumber(0, 100);
     if (!arr.includes(number)) {
       arr.push(number);
     }
