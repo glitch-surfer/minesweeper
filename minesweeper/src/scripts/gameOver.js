@@ -10,15 +10,15 @@ const gameOver = (event) => {
       mine.style.opacity = '1';
     });
 
-    text.textContent = 'YOU LOSE!';
-    text.style.color = 'red';
+    /* text.textContent = 'YOU LOSE!';
+    text.style.color = 'red'; */
     document.querySelector('.board').removeEventListener('click', openCell);
   } else {
     const cells = document.querySelectorAll('.cell');
     const closedCells = [...cells].filter((item) => !item.isOpen);
     if (closedCells.length === 10) {
-      text.textContent = 'YOU WIN!';
-      text.style.color = 'green';
+      /* text.textContent = 'YOU WIN!';
+      text.style.color = 'green'; */
     }
   }
 };

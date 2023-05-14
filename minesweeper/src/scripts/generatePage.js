@@ -3,15 +3,15 @@ import gameOver from './gameOver';
 import openCell from './openCell';
 import addMinesNumber from './addMinesNumber';
 
-const minesCount = 99;
+let minesCount = 10;
 
 const generateHeader = () => {
   const header = document.createElement('header');
   header.classList.add('header');
 
-  const minesCount = document.createElement('p');
-  minesCount.classList.add('mines-count');
-  minesCount.textContent = 'Mines count: 10';
+  const movesCount = document.createElement('p');
+  movesCount.classList.add('moves-count');
+  movesCount.textContent = 'Your moves: 0';
 
   const btn = document.createElement('btn');
   btn.classList.add('btn');
@@ -21,7 +21,7 @@ const generateHeader = () => {
   timer.classList.add('timer');
   timer.textContent = 'timer: 10 sec';
 
-  header.append(minesCount);
+  header.append(movesCount);
   header.append(btn);
   header.append(timer);
 
@@ -47,6 +47,7 @@ const generateMain = () => {
 };
 
 const generatePage = () => {
+  document.movesCount = 0;
   document.body.append(generateHeader());
   document.body.append(generateMain());
 

@@ -40,9 +40,14 @@ const openAdditionalCell = (event) => {
   });
 };
 
+document.movesCount = 0;
+
 const openCell = (event) => {
   const cell = event.target;
   if (cell.classList.contains('cell')) {
+    if (!cell.isOpen) {
+      document.querySelector('.moves-count').innerHTML = `Your moves: ${++document.movesCount}`;
+    }
     open(cell);
     if (!cell.dataset.number) {
       const matrix = createMatrix();
