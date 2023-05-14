@@ -31,8 +31,7 @@ const getSurround = () => {
       arr.push(matrix[y + 1]?.[x]);
       arr.push(matrix[y + 1]?.[x - 1]);
       surroundMinesCount.push(arr
-        .filter((item) => item)
-        .filter((item) => item.childElementCount).length);
+        .filter((item) => item && item.childElementCount).length);
     }
   }
 

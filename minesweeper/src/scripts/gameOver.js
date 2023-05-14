@@ -12,7 +12,7 @@ const gameOver = (event) => {
     const text = document.querySelector('.mines-count');
     text.textContent = 'YOU LOSE!';
     text.style.color = 'red';
-    document.removeEventListener('click', openCell);
+    document.querySelector('.board').removeEventListener('click', openCell);
   }
 };
 
