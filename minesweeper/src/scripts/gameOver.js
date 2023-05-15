@@ -5,7 +5,7 @@ const gameOver = (event) => {
   const btn = document.querySelector('.btn');
   const board = document.querySelector('.board');
 
-  if (!event.target.textContent) {
+  if (event.target.textContent !== '🚩') {
     if (event.target.isBomb) {
       const bombs = [...document.querySelectorAll('.cell')].filter((item) => item.isBomb);
 
