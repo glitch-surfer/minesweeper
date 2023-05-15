@@ -29,7 +29,7 @@ const openAdditionalCell = (event) => {
   arr.push(matrix[y + 1]?.[x]);
   arr.push(matrix[y + 1]?.[x - 1]);
 
-  const normalizedArr = arr.filter((item) => item && !item.isBomb);
+  const normalizedArr = arr.filter((item) => item);
 
   normalizedArr.forEach((item) => {
     if (!item.dataset.number && !item.isOpen) {
@@ -50,32 +50,7 @@ const openCell = (event) => {
     }
     open(cell);
     if (!cell.dataset.number) {
-      const matrix = createMatrix();
-      const cells = document.querySelectorAll('.cell');
-
-      const cellIndex = [...cells].findIndex((item) => item === cell);
-      const y = cellIndex > 9 ? +cellIndex.toString()[0] : 0;
-      const x = cellIndex > 9 ? +cellIndex.toString()[1] : cellIndex;
-
-      const arr = [];
-      arr.push(matrix[y - 1]?.[x]);
-      arr.push(matrix[y - 1]?.[x + 1]);
-      arr.push(matrix[y - 1]?.[x - 1]);
-      arr.push(matrix[y]?.[x + 1]);
-      arr.push(matrix[y]?.[x - 1]);
-      arr.push(matrix[y + 1]?.[x + 1]);
-      arr.push(matrix[y + 1]?.[x]);
-      arr.push(matrix[y + 1]?.[x - 1]);
-
-      const normalizedArr = arr.filter((item) => item && !item.isBomb);
-
-      normalizedArr.forEach((item) => {
-        if (!item.dataset.number && !item.isOpen) {
-          openAdditionalCell(item);
-        } else {
-          open(item);
-        }
-      });
+      openAdditionalCell(cell);
     }
   }
 };
