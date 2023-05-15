@@ -23,9 +23,15 @@ const generateHeader = () => {
   timer.classList.add('timer');
   timer.textContent = 'Timer: 0 sec';
 
+  document.flagCount = document.minesCount;
+  const counter = document.createElement('p');
+  counter.classList.add('counter');
+  counter.textContent = `Mines count: ${document.flagCount}`;
+
   header.append(movesCount);
   header.append(btn);
   header.append(timer);
+  header.append(counter);
 
   return header;
 };

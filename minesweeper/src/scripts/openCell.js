@@ -29,7 +29,7 @@ const openAdditionalCell = (event) => {
   arr.push(matrix[y + 1]?.[x]);
   arr.push(matrix[y + 1]?.[x - 1]);
 
-  const normalizedArr = arr.filter((item) => item);
+  const normalizedArr = arr.filter((item) => item && item.textContent !== '🚩');
 
   normalizedArr.forEach((item) => {
     if (!item.dataset.number && !item.isOpen) {
@@ -38,6 +38,9 @@ const openAdditionalCell = (event) => {
       open(item);
     }
   });
+  const activeFlags = [...cells].filter((item) => item.textContent === '🚩').length;
+  document.flagCount = document.minesCount - activeFlags;
+  document.querySelector('.counter').textContent = `Mines count: ${document.flagCount}`;
 };
 
 document.movesCount = 0;
