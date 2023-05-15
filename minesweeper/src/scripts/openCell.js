@@ -44,7 +44,7 @@ document.movesCount = 0;
 
 const openCell = (event) => {
   const cell = event.target;
-  if (cell.classList.contains('cell') && !cell.isBomb) {
+  if (cell.classList.contains('cell') && !cell.isBomb && !cell.textContent) {
     if (!cell.isOpen) {
       document.querySelector('.moves-count').innerHTML = `Your moves: ${++document.movesCount}`;
     }
