@@ -31,7 +31,7 @@ const getSurround = () => {
       arr.push(matrix[y + 1]?.[x]);
       arr.push(matrix[y + 1]?.[x - 1]);
       surroundMinesCount.push(arr
-        .filter((item) => item && item.childElementCount).length);
+        .filter((item) => item && item.isBomb).length);
     }
   }
 
@@ -44,9 +44,8 @@ const addMinesNumber = () => {
 
   cells.forEach((item, index) => {
     const cell = item;
-    if (!cell.childElementCount && surroundMinesCount[index]) {
+    if (!cell.isBomb && surroundMinesCount[index]) {
       cell.dataset.number = surroundMinesCount[index];
-      /* w */
     }
   });
 };

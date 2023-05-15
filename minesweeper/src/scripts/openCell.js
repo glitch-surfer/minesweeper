@@ -29,7 +29,7 @@ const openAdditionalCell = (event) => {
   arr.push(matrix[y + 1]?.[x]);
   arr.push(matrix[y + 1]?.[x - 1]);
 
-  const normalizedArr = arr.filter((item) => item && !item.childElementCount);
+  const normalizedArr = arr.filter((item) => item && !item.isBomb);
 
   normalizedArr.forEach((item) => {
     if (!item.dataset.number && !item.isOpen) {
@@ -44,7 +44,7 @@ document.movesCount = 0;
 
 const openCell = (event) => {
   const cell = event.target;
-  if (cell.classList.contains('cell')) {
+  if (cell.classList.contains('cell') && !cell.isBomb) {
     if (!cell.isOpen) {
       document.querySelector('.moves-count').innerHTML = `Your moves: ${++document.movesCount}`;
     }
@@ -67,7 +67,7 @@ const openCell = (event) => {
       arr.push(matrix[y + 1]?.[x]);
       arr.push(matrix[y + 1]?.[x - 1]);
 
-      const normalizedArr = arr.filter((item) => item && !item.childElementCount);
+      const normalizedArr = arr.filter((item) => item && !item.isBomb);
 
       normalizedArr.forEach((item) => {
         if (!item.dataset.number && !item.isOpen) {

@@ -3,8 +3,9 @@ import gameOver from './gameOver';
 import openCell from './openCell';
 import addMinesNumber from './addMinesNumber';
 import setTimer from './timer';
+import setFlag from './setFlag';
 
-let minesCount = 10;
+document.minesCount = 10;
 
 const generateHeader = () => {
   const header = document.createElement('header');
@@ -56,7 +57,7 @@ const generatePage = () => {
 
   const firstStep = (event) => {
     board.removeEventListener('click', firstStep);
-    generateMines(minesCount, event);
+    generateMines(document.minesCount, event);
     addMinesNumber();
     setTimer();
     document.querySelector('.btn').textContent = '😎';
@@ -65,6 +66,7 @@ const generatePage = () => {
   board.addEventListener('click', firstStep);
   board.addEventListener('click', openCell);
   board.addEventListener('click', gameOver);
+  board.addEventListener('contextmenu', setFlag);
 
   document.querySelector('.btn').addEventListener('click', () => {
     clearInterval(document.timer);
