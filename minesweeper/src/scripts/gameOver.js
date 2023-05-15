@@ -15,18 +15,24 @@ const gameOver = (event) => {
         item.textContent = '';
         item.append(bomb);
       });
+
+      event.target.style.backgroundColor = 'red';
+
       clearInterval(document.timer);
       btn.textContent = '😩';
+
       board.removeEventListener('click', openCell);
       board.removeEventListener('contextmenu', setFlag);
       board.removeEventListener('click', gameOver);
     } else {
       const cells = document.querySelectorAll('.cell');
       const closedCells = [...cells].filter((item) => !item.isOpen);
+
       if (closedCells.length === document.minesCount) {
+        clearInterval(document.timer);
         btn.textContent = '🤩';
         document.querySelector('.header').style.color = 'green';
-        clearInterval(document.timer);
+
         board.removeEventListener('click', openCell);
         board.removeEventListener('click', gameOver);
         board.removeEventListener('contextmenu', setFlag);

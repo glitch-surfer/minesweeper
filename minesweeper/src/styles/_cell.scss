@@ -16,7 +16,11 @@
   background-size: cover;
   width: 40px;
   height: 40px;
-  /* opacity: 0; */
+}
+
+.cell:has(.bomb) {
+  background-color: transparent;
+  border: 1px solid grey;
 }
 
 [data-number="1"] {

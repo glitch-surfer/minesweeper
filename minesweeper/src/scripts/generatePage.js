@@ -30,8 +30,8 @@ const generateHeader = () => {
 
   header.append(movesCount);
   header.append(btn);
-  header.append(timer);
   header.append(counter);
+  header.append(timer);
 
   return header;
 };
