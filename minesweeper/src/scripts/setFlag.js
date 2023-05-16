@@ -3,11 +3,18 @@ const setFlag = (event) => {
   const counter = document.querySelector('.counter');
   event.preventDefault();
   if (cell.classList.contains('cell') && !cell.isOpen) {
+    const audio = new Audio('../src/assets/sounds/flag.mp3');
     if (!cell.closest('.cell').textContent) {
+      if (document.querySelector('.sound-switcher').checked) {
+        audio.play();
+      }
       cell.textContent = '🚩';
       document.flagCount -= 1;
       counter.textContent = `Mines count: ${document.flagCount}`;
     } else {
+      if (document.querySelector('.sound-switcher').checked) {
+        audio.play();
+      }
       cell.textContent = '';
       document.flagCount += 1;
       counter.textContent = `Mines count: ${document.flagCount}`;

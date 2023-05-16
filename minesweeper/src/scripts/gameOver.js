@@ -15,7 +15,9 @@ const gameOver = (event) => {
         item.textContent = '';
         item.append(bomb);
       });
-
+      if (document.querySelector('.sound-switcher').checked) {
+        new Audio('../src/assets/sounds/bomb.mp3').play();
+      }
       event.target.style.backgroundColor = 'red';
 
       clearInterval(document.timer);
@@ -29,6 +31,9 @@ const gameOver = (event) => {
       const closedCells = [...cells].filter((item) => !item.isOpen);
 
       if (closedCells.length === document.minesCount) {
+        if (document.querySelector('.sound-switcher').checked) {
+          new Audio('../src/assets/sounds/win.mp3').play();
+        }
         clearInterval(document.timer);
         btn.textContent = '🤩';
         document.querySelector('.header').style.color = 'green';

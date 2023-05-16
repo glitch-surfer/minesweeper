@@ -11,6 +11,13 @@ const generateHeader = () => {
   const header = document.createElement('header');
   header.classList.add('header');
 
+  const switcherWrapper = document.createElement('label');
+  const soundSwitcher = document.createElement('input');
+  soundSwitcher.setAttribute('type', 'checkbox');
+  soundSwitcher.setAttribute('checked', 'true');
+  soundSwitcher.classList.add('sound-switcher');
+  switcherWrapper.append(soundSwitcher);
+
   const movesCount = document.createElement('p');
   movesCount.classList.add('moves-count');
   movesCount.textContent = 'Your moves: 0';
@@ -32,6 +39,7 @@ const generateHeader = () => {
   header.append(btn);
   header.append(counter);
   header.append(timer);
+  header.append(switcherWrapper);
 
   return header;
 };

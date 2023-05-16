@@ -50,6 +50,10 @@ const openCell = (event) => {
   if (cell.classList.contains('cell') && !cell.isBomb && !cell.textContent) {
     if (!cell.isOpen) {
       document.querySelector('.moves-count').innerHTML = `Your moves: ${++document.movesCount}`;
+
+      if (document.querySelector('.sound-switcher').checked) {
+        new Audio('../src/assets/sounds/empty-cell.mp3').play();
+      }
     }
     open(cell);
     if (!cell.dataset.number) {
