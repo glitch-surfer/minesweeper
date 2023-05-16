@@ -2,8 +2,6 @@ import { createMatrix } from './addMinesNumber';
 
 const open = (item) => {
   const cell = item;
-  /* cell.style.backgroundColor = 'transparent';
-  cell.style.border = '1px solid grey'; */
   cell.classList.add('is-open');
   cell.textContent = cell.dataset.number;
   cell.isOpen = true;
@@ -45,13 +43,11 @@ const openAdditionalCell = (event) => {
   document.querySelector('.counter').textContent = `Mines count: ${document.flagCount}`; */
 };
 
-document.movesCount = 0;
-
 const openCell = (event) => {
   const cell = event.target;
   if (cell.classList.contains('cell') && !cell.isBomb && !cell.textContent) {
     if (!cell.isOpen) {
-      document.querySelector('.moves-count').innerHTML = `Your moves: ${++document.movesCount}`;
+      document.querySelector('.moves-count').innerHTML = `Your moves: ${document.movesCount += 1}`;
 
       if (document.querySelector('.sound-switcher').checked) {
         new Audio('../src/assets/sounds/empty-cell.mp3').play();
