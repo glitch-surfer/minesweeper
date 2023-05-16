@@ -15,10 +15,12 @@
   position: absolute;
   top: 5%;
   font-size: 2rem;
-  color: rgb(78, 213, 213);
+  color: rgb(23, 29, 29);
+  background-color: rgb(196, 215, 214);
 
   body.dark-theme & {
     color: rgb(68, 160, 160);
+    background-color: rgb(53, 46, 46);
   }
 }
 

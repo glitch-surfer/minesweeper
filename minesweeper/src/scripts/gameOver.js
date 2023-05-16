@@ -48,7 +48,7 @@ const gameOver = (event) => {
         }
         clearInterval(document.timer);
         btn.textContent = '🤩';
-        document.querySelector('.header').style.color = 'green';
+        document.body.classList.add('win');
 
         board.removeEventListener('click', openCell);
         board.removeEventListener('click', gameOver);

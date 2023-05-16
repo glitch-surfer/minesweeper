@@ -1,0 +1,52 @@
+.settings {
+  padding: 5px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+
+  body.win & {
+    color: $win-color;
+  }
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+label:has(.sound-switcher) {
+  width: 30px;
+  height: 30px;
+  font-size: 1.6rem;
+  background-color: transparent;
+  cursor: pointer;
+
+  /* &:hover {
+    font-size: 1.7rem;
+  } */
+}
+
+.theme-switcher {
+  width: 30px;
+  height: 30px;
+  background: url('../assets/img/free-icon-day-and-night-8295128.png') center no-repeat transparent;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out;
+}
+
+.is-dark {
+  transform: rotate((180deg));
+}
+
+
+.btn-results {
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  @extend %display
+}
+
+.timer {
+  @extend %display
+}

@@ -1,6 +1,15 @@
 import './styles/style.scss';
-import generatePage from './scripts/generatePage';
+import generateBoard from './scripts/generateBoard';
+import generateSettings from './scripts/generateSettings';
+import { generateModal } from './scripts/popUp';
+import switchTheme from './scripts/swithTheme';
+import soundIconSwitcher from './scripts/soundIconSwitcher';
 
-document.minesCount = 1;
+document.minesCount = 10;
 
-generatePage();
+document.body.append(generateSettings());
+generateBoard();
+
+document.querySelector('.theme-switcher').addEventListener('click', switchTheme);
+document.querySelector('.btn-results').addEventListener('click', generateModal);
+document.querySelector('label').addEventListener('click', soundIconSwitcher);

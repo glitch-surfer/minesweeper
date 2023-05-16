@@ -11,6 +11,10 @@
   border: 7px solid $border-color;
   border-style: outset;
 
+  body.win & {
+    color: $win-color;
+  }
+
   body.dark-theme & {
     background-color: $dark-board-background-color;
     border: 7px solid $dark-border-color;
@@ -19,12 +23,24 @@
 
 }
 
+.moves-count {
+  @extend %display
+}
+
 .btn {
+  width: 50px;
+  height: 50px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 50px;
+  font-size: 2.3rem;
   cursor: pointer;
+
+  /* &:hover {
+    font-size: 2.5rem;
+  } */
 }
 
-/* .timer {} */
+.counter {
+  @extend %display
+}
