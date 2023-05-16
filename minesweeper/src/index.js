@@ -1,6 +1,6 @@
 import './styles/style.scss';
 import generatePage from './scripts/generatePage';
 
-document.minesCount = 10;
+document.minesCount = 99;
 
 generatePage();
