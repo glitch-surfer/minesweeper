@@ -1,6 +1,17 @@
 import openCell from './openCell';
 import setFlag from './setFlag';
 
+export const setResultList = () => {
+  const gameId = +localStorage.getItem('gameId') + 1 || 1;
+
+  if (gameId > 10) {
+    localStorage.removeItem(`${gameId - 10}`);
+  }
+  localStorage.setItem(gameId, `Game #${gameId} ____ Time: ${document.querySelector('.timer').textContent.slice(7)} ____ Moves: ${document.querySelector('.moves-count').textContent.slice(11)}`);
+
+  localStorage.setItem('gameId', gameId);
+};
+
 const gameOver = (event) => {
   const btn = document.querySelector('.btn');
   const board = document.querySelector('.board');
@@ -43,21 +54,7 @@ const gameOver = (event) => {
         board.removeEventListener('click', gameOver);
         board.removeEventListener('contextmenu', setFlag);
 
-        const gameId = +localStorage.getItem('gameId') + 1 || 1;
-
-        if (gameId > 10) {
-          localStorage.removeItem(`${gameId - 10}`);
-        }
-        localStorage.setItem(gameId, `Game #${gameId}\n Time: ${document.querySelector('.timer').textContent.slice(7)}, Moves: ${document.querySelector('.timer').textContent.slice(11, -1)}`);
-
-        localStorage.setItem('gameId', gameId);
-        const resultsList = [];
-        for (let i = 0; i < localStorage.length; i += 1) {
-          const item = localStorage.getItem(gameId - i);
-          resultsList.push(item);
-        }
-        console.log(resultsList);
-        /* localStorage.clear() */
+        setResultList();
       }
     }
   }

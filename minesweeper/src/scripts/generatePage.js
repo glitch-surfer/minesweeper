@@ -5,12 +5,21 @@ import switchTheme from './swithTheme';
 import firstStep from './firstStep';
 import generateHeader from './generateHeader';
 import generateMain from './generateMain';
+import { generateModal } from './popUp';
 
 const generatePage = () => {
   document.movesCount = 0;
 
   document.body.append(generateHeader());
   document.body.append(generateMain());
+
+  //
+  const resultsBtn = document.createElement('button');
+  resultsBtn.classList.add('btn-results');
+  resultsBtn.textContent = 'results';
+  document.body.append(resultsBtn);
+  resultsBtn.addEventListener('click', generateModal);
+  //
 
   const board = document.querySelector('.board');
 
