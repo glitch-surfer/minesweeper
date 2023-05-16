@@ -12,13 +12,14 @@ const gameOver = (event) => {
       bombs.forEach((item) => {
         const bomb = document.createElement('div');
         bomb.classList.add('bomb');
+        item.classList.add('is-open');
         item.textContent = '';
         item.append(bomb);
       });
       if (document.querySelector('.sound-switcher').checked) {
         new Audio('../src/assets/sounds/bomb.mp3').play();
       }
-      event.target.style.backgroundColor = 'red';
+      event.target.firstElementChild.style.backgroundColor = 'red';
 
       clearInterval(document.timer);
       btn.textContent = '😩';

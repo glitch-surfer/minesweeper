@@ -2,8 +2,9 @@ import { createMatrix } from './addMinesNumber';
 
 const open = (item) => {
   const cell = item;
-  cell.style.backgroundColor = 'transparent';
-  cell.style.border = '1px solid grey';
+  /* cell.style.backgroundColor = 'transparent';
+  cell.style.border = '1px solid grey'; */
+  cell.classList.add('is-open');
   cell.textContent = cell.dataset.number;
   cell.isOpen = true;
 };
@@ -38,9 +39,10 @@ const openAdditionalCell = (event) => {
       open(item);
     }
   });
-  const activeFlags = [...cells].filter((item) => item.textContent === '🚩').length;
+  // open this part, if you decide throw flag without mine when area opens
+  /* const activeFlags = [...cells].filter((item) => item.textContent === '🚩').length;
   document.flagCount = document.minesCount - activeFlags;
-  document.querySelector('.counter').textContent = `Mines count: ${document.flagCount}`;
+  document.querySelector('.counter').textContent = `Mines count: ${document.flagCount}`; */
 };
 
 document.movesCount = 0;

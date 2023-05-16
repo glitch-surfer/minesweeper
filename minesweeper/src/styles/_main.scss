@@ -3,12 +3,18 @@
   background-color: $board-background-color;
   border: 7px solid $border-color;
   border-style: outset;
+
+  body.dark-theme & {
+    background-color: $dark-board-background-color;
+    border: 7px solid $dark-border-color;
+    border-style: outset;
+  }
+
 }
 
 .board {
-  /* padding: 7px; */
+  padding: 2px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* gap: 2px; */
 }

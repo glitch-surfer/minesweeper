@@ -11,12 +11,18 @@ const generateHeader = () => {
   const header = document.createElement('header');
   header.classList.add('header');
 
-  const switcherWrapper = document.createElement('label');
+  const soundSwitcherWrapper = document.createElement('label');
   const soundSwitcher = document.createElement('input');
   soundSwitcher.setAttribute('type', 'checkbox');
   soundSwitcher.setAttribute('checked', 'true');
   soundSwitcher.classList.add('sound-switcher');
-  switcherWrapper.append(soundSwitcher);
+  soundSwitcherWrapper.append(soundSwitcher);
+
+  const themeSwitcherWrapper = document.createElement('label');
+  const themeSwitcher = document.createElement('input');
+  themeSwitcher.setAttribute('type', 'checkbox');
+  themeSwitcher.classList.add('theme-switcher');
+  themeSwitcherWrapper.append(themeSwitcher);
 
   const movesCount = document.createElement('p');
   movesCount.classList.add('moves-count');
@@ -39,7 +45,8 @@ const generateHeader = () => {
   header.append(btn);
   header.append(counter);
   header.append(timer);
-  header.append(switcherWrapper);
+  header.append(soundSwitcherWrapper);
+  header.append(themeSwitcherWrapper);
 
   return header;
 };
@@ -81,6 +88,13 @@ const generatePage = () => {
   board.addEventListener('click', openCell);
   board.addEventListener('click', gameOver);
   board.addEventListener('contextmenu', setFlag);
+  document.querySelector('label > .theme-switcher').addEventListener('click', (event) => {
+    if (event.target.checked) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+  });
 
   document.querySelector('.btn').addEventListener('click', () => {
     clearInterval(document.timer);

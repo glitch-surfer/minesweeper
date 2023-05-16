@@ -9,6 +9,24 @@
   border: 5px solid $board-background-color;
   border-style: outset;
   cursor: pointer;
+
+  body.dark-theme & {
+    background-color: $dark-border-color;
+    border: 5px solid $dark-board-background-color;
+    border-style: outset;
+  }
+
+  &.is-open {
+    background-color: transparent;
+    border: 1px solid grey;
+
+    body.dark-theme & {
+      background-color: transparent;
+      border: 1px solid grey;
+    }
+
+  }
+
 }
 
 .bomb {
@@ -16,6 +34,11 @@
   background-size: cover;
   width: 40px;
   height: 40px;
+
+  body.dark-theme & {
+    background-color: $dark-bomb-background;
+  }
+
 }
 
 .cell:has(.bomb) {

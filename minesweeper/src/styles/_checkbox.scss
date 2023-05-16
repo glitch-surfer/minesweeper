@@ -9,3 +9,11 @@ label:has(.sound-switcher) {
   background-color: green;
   cursor: pointer;
 }
+
+label:has(.theme-switcher) {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: brown;
+  cursor: pointer;
+}
