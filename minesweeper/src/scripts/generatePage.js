@@ -9,7 +9,7 @@ import { generateModal } from './popUp';
 
 const generatePage = () => {
   document.movesCount = 0;
-
+  
   document.body.append(generateHeader());
   document.body.append(generateMain());
 
