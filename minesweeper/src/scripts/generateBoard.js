@@ -2,14 +2,16 @@ import gameOver from './gameOver';
 import openCell from './openCell';
 import setFlag from './setFlag';
 import firstStep from './firstStep';
-import generateHeader from './generateHeader';
+import generateControlsPanel from './generateControlsPanel';
 import generateMain from './generateMain';
 
 const generateBoard = () => {
   document.movesCount = 0;
 
-  document.body.append(generateHeader());
-  document.body.append(generateMain());
+  const main = generateMain();
+  /* document.body.append(generateHeader()); */
+  main.prepend(generateControlsPanel());
+  document.body.append(main);
 
   const board = document.getElementById('board');
 
@@ -18,14 +20,16 @@ const generateBoard = () => {
   board.addEventListener('click', gameOver);
   board.addEventListener('contextmenu', setFlag);
 
-  // reset game
-  document.querySelector('.btn').addEventListener('click', () => {
+  const resetGame = () => {
     clearInterval(document.timer);
-    document.querySelector('header').remove();
+    document.querySelector('.timer').textContent = 'Timer: 0 sec';
     document.querySelector('main').remove();
     document.body.classList.remove('win');
     generateBoard();
-  });
+  };
+
+  // reset game
+  document.querySelector('.btn').addEventListener('click', resetGame);
 };
 
 export default generateBoard;

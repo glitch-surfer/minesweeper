@@ -1,7 +1,29 @@
+/* import generateBoard from './generateBoard'; */
+import resetGame from './resetGame';
+
 const generateSettings = () => {
+  const modeContainer = document.createElement('div');
+  modeContainer.classList.add('mode');
+
+  const mineCountDisplay = document.createElement('p');
+  mineCountDisplay.textContent = `Mines on board: ${document.minesCount}`;
+  modeContainer.append(mineCountDisplay);
+
+  const mineCountSelector = document.createElement('input');
+  mineCountSelector.setAttribute('type', 'range');
+  mineCountSelector.setAttribute('value', '10');
+  mineCountSelector.setAttribute('min', '10');
+  mineCountSelector.setAttribute('max', '99');
+  mineCountSelector.addEventListener('input', (event) => {
+    document.querySelector('.counter').textContent = `Mines count: ${event.target.value}`;
+    document.minesCount = event.target.value;
+    resetGame();
+  });
+  modeContainer.append(mineCountSelector);
+
   const settingsContainer = document.createElement('div');
   settingsContainer.classList.add('settings');
-  settingsContainer.classList.add('header');
+  settingsContainer.classList.add('controls-panel');
 
   const resultsBtn = document.createElement('button');
   resultsBtn.classList.add('btn-results');
@@ -12,14 +34,6 @@ const generateSettings = () => {
   timer.classList.add('timer');
   timer.textContent = 'Timer: 0 sec';
   settingsContainer.append(timer);
-
-  const mineCountSelector = document.createElement('input');
-  mineCountSelector.setAttribute('type', 'number');
-  mineCountSelector.setAttribute('placeholder', 'mines of board');
-  mineCountSelector.setAttribute('min', '10');
-  mineCountSelector.setAttribute('max', '99');
-  /* mineCountSelector.textContent = 'Timer: 0 sec'; */
-  settingsContainer.append(mineCountSelector);
 
   const soundSwitcherWrapper = document.createElement('label');
   const labelText = document.createElement('span');
@@ -38,8 +52,11 @@ const generateSettings = () => {
   themeSwitcher.addEventListener('click', (event) => {
     event.target.classList.toggle('is-dark');
   });
-
-  return settingsContainer;
+  const header = document.createElement('header');
+  header.classList.add('header');
+  header.append(modeContainer);
+  header.append(settingsContainer);
+  return header;
 };
 
 export default generateSettings;

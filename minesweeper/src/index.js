@@ -4,6 +4,7 @@ import generateSettings from './scripts/generateSettings';
 import { generateModal } from './scripts/popUp';
 import switchTheme from './scripts/swithTheme';
 import soundIconSwitcher from './scripts/soundIconSwitcher';
+/* import firstStep from './scripts/firstStep'; */
 
 document.minesCount = 10;
 
@@ -13,3 +14,4 @@ generateBoard();
 document.querySelector('.theme-switcher').addEventListener('click', switchTheme);
 document.querySelector('.btn-results').addEventListener('click', generateModal);
 document.querySelector('label').addEventListener('click', soundIconSwitcher);
+/* document.addEventListener('click', firstStep); */

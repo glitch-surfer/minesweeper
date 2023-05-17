@@ -1,6 +1,6 @@
-const generateHeader = () => {
-  const header = document.createElement('header');
-  header.classList.add('header');
+const generateControlsPanel = () => {
+  const header = document.createElement('div');
+  header.classList.add('controls-panel');
 
   const movesCount = document.createElement('p');
   movesCount.classList.add('moves-count');
@@ -21,4 +21,4 @@ const generateHeader = () => {
   return header;
 };
 
-export default generateHeader;
+export default generateControlsPanel;
