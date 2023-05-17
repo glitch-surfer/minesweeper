@@ -15,8 +15,17 @@ const openAdditionalCell = (event) => {
   const cells = document.querySelectorAll('.cell');
 
   const cellIndex = [...cells].findIndex((item) => item === cell);
-  const y = cellIndex > 9 ? +cellIndex.toString()[0] : 0;
-  const x = cellIndex > 9 ? +cellIndex.toString()[1] : cellIndex;
+  let y;
+  let x;
+  if (document.boardSize === 10) {
+    // first variant befor upgrade to big board option, just for compare
+    y = cellIndex > document.boardSize - 1 ? +cellIndex.toString()[0] : 0;
+    x = cellIndex > document.boardSize - 1 ? +cellIndex.toString()[1] : cellIndex;
+  } else {
+    // universal beautifull solution
+    y = Math.floor(cellIndex / document.boardSize);
+    x = cellIndex % document.boardSize;
+  }
 
   const arr = [];
   arr.push(matrix[y - 1]?.[x]);

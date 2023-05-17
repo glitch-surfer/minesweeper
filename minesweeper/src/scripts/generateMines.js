@@ -4,7 +4,7 @@ const generateRandomNumberArr = (length, exclude) => {
   const arr = [];
 
   while (arr.length < length) {
-    const number = getRandomNumber(0, 99);
+    const number = getRandomNumber(0, document.boardSize ** 2 - 1);
     if (!arr.includes(number) && number !== exclude) {
       arr.push(number);
     }
@@ -13,7 +13,6 @@ const generateRandomNumberArr = (length, exclude) => {
 };
 
 const generateMines = (minesCount, event) => {
-  // minesCount shoul be Math.sqrt(cells) or change generateRandomNumberArr func
   const cells = document.querySelectorAll('.cell');
   const firstClick = [...cells].findIndex((item) => item === event.target);
   const randomNumberArr = generateRandomNumberArr(minesCount, firstClick);

@@ -10,7 +10,7 @@
   border-style: outset;
   cursor: pointer;
 
-  body.dark-theme & {
+  .dark-theme & {
     background-color: $dark-border-color;
     border: 5px solid $dark-board-background-color;
     border-style: outset;
@@ -20,13 +20,23 @@
     background-color: transparent;
     border: 1px solid grey;
 
-    body.dark-theme & {
+    .dark-theme & {
       background-color: transparent;
       border: 1px solid grey;
     }
-
   }
 
+  .medium-layout & {
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
+  }
+
+  .suicide-layout & {
+    width: 17px;
+    height: 17px;
+    font-size: 1rem;
+  }
 }
 
 .bomb {
@@ -35,8 +45,18 @@
   width: 40px;
   height: 40px;
 
-  body.dark-theme & {
+  .dark-theme & {
     background-color: $dark-bomb-background;
+  }
+
+  .medium-layout & {
+    width: 25px;
+    height: 25px;
+  }
+
+  .suicide-layout & {
+    width: 15px;
+    height: 15px;
   }
 
 }

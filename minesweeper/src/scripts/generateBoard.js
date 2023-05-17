@@ -9,7 +9,6 @@ const generateBoard = () => {
   document.movesCount = 0;
 
   const main = generateMain();
-  /* document.body.append(generateHeader()); */
   main.prepend(generateControlsPanel());
   document.body.append(main);
 

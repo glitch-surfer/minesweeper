@@ -18,9 +18,8 @@ export const createMatrix = () => {
 const getSurround = () => {
   const matrix = createMatrix();
   const surroundMinesCount = [];
-  // TODO: change 10 to variables
-  for (let y = 0; y < 10; y += 1) {
-    for (let x = 0; x < 10; x += 1) {
+  for (let y = 0; y < matrix[0].length; y += 1) {
+    for (let x = 0; x < matrix[0].length; x += 1) {
       const arr = [];
       arr.push(matrix[y - 1]?.[x]);
       arr.push(matrix[y - 1]?.[x + 1]);

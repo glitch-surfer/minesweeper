@@ -6,7 +6,7 @@ const generateMain = () => {
   board.classList.add('board');
   board.setAttribute('id', 'board');
 
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 0; i < document.boardSize ** 2; i += 1) {
     const cell = document.createElement('div');
     cell.classList.add('cell');
     board.append(cell);

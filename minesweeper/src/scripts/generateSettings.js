@@ -1,12 +1,28 @@
-/* import generateBoard from './generateBoard'; */
 import resetGame from './resetGame';
+import modeSwitcher from './modeSwitcher';
 
 const generateSettings = () => {
   const modeContainer = document.createElement('div');
   modeContainer.classList.add('mode');
+  modeContainer.addEventListener('click', modeSwitcher);
 
-  const mineCountDisplay = document.createElement('p');
-  mineCountDisplay.textContent = `Mines on board: ${document.minesCount}`;
+  const easyMode = document.createElement('span');
+  easyMode.textContent = 'Ease';
+  easyMode.classList.add('easy-mode');
+  modeContainer.append(easyMode);
+
+  const mediumMode = document.createElement('span');
+  mediumMode.textContent = 'Medium';
+  mediumMode.classList.add('medium-mode');
+  modeContainer.append(mediumMode);
+
+  const suicideMode = document.createElement('span');
+  suicideMode.textContent = 'Suicide';
+  suicideMode.classList.add('suicide-mode');
+  modeContainer.append(suicideMode);
+
+  const mineCountDisplay = document.createElement('span');
+  mineCountDisplay.textContent = 'Mines:';
   modeContainer.append(mineCountDisplay);
 
   const mineCountSelector = document.createElement('input');
@@ -52,6 +68,7 @@ const generateSettings = () => {
   themeSwitcher.addEventListener('click', (event) => {
     event.target.classList.toggle('is-dark');
   });
+
   const header = document.createElement('header');
   header.classList.add('header');
   header.append(modeContainer);
