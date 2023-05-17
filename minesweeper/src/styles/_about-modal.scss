@@ -10,7 +10,7 @@
 }
 
 .about__text {
-  color: black;
+  color: $dark-border-color;
 
   .dark-theme & {
     color: rgb(68, 160, 160);

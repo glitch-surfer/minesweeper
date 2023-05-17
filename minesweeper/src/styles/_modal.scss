@@ -15,7 +15,7 @@
   position: absolute;
   top: 5%;
   font-size: 2rem;
-  color: rgb(23, 29, 29);
+  color: $dark-board-background-color;
   background-color: rgb(196, 215, 214);
 
   .dark-theme & {
@@ -43,13 +43,14 @@
 }
 
 .btn-modal {
-  cursor: pointer;
   width: 40px;
   height: 40px;
   position: absolute;
   top: -10px;
   right: -10px;
   font-size: 1.4rem;
+  color: $dark-board-background-color;
+  cursor: pointer;
   background-color: transparent;
   border: none;
 
