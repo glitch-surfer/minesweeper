@@ -1,16 +1,6 @@
 import openCell from './openCell';
 import setFlag from './setFlag';
-
-export const setResultList = () => {
-  const gameId = +localStorage.getItem('gameId') + 1 || 1;
-
-  if (gameId > 10) {
-    localStorage.removeItem(`${gameId - 10}`);
-  }
-  localStorage.setItem(gameId, `Game #${gameId} ____ Time: ${document.querySelector('.timer').textContent.slice(7)} ____ Moves: ${document.querySelector('.moves-count').textContent.slice(11)}`);
-
-  localStorage.setItem('gameId', gameId);
-};
+import setResult from './setResult';
 
 const gameOver = (event) => {
   const btn = document.querySelector('.btn');
@@ -54,7 +44,7 @@ const gameOver = (event) => {
         board.removeEventListener('click', gameOver);
         board.removeEventListener('contextmenu', setFlag);
 
-        setResultList();
+        setResult();
       }
     }
   }

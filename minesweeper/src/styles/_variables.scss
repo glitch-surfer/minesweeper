@@ -9,14 +9,14 @@ $win-color: rgb(54, 178, 54);
 $dark-main-background-color: rgb(37, 36, 36);
 $dark-board-background-color: rgb(48, 41, 41);
 $dark-border-color: rgb(40, 36, 36);
-$dark-bomb-background: rgb(67, 24, 24);
+$dark-bomb-background: rgb(137, 59, 59);
 $dark-text-color: rgb(68, 160, 160);
 
 // placeholders
 
 %display {
   padding: 2px;
-  background-color: $display-bacjground;
+  /* background-color: $display-bacjground; */
   border: 4px solid $border-color;
   border-style: outset;
 
@@ -41,7 +41,7 @@ $dark-text-color: rgb(68, 160, 160);
   }
 
   &:hover {
-    background-color: rgba(36, 34, 34, 0.5);
+    background-color: rgba(36, 34, 34, 0.2);
     transform: scale(0.98);
     box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.2);
   }

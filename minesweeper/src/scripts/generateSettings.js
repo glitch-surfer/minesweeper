@@ -6,6 +6,10 @@ const generateSettings = () => {
   modeContainer.classList.add('mode');
   modeContainer.addEventListener('click', modeSwitcher);
 
+  const about = document.createElement('span');
+  about.textContent = 'About';
+  about.classList.add('about__btn');
+
   const easyMode = document.createElement('span');
   easyMode.textContent = 'Easy';
   easyMode.classList.add('easy-mode');
@@ -72,6 +76,7 @@ const generateSettings = () => {
 
   const header = document.createElement('header');
   header.classList.add('header');
+  header.append(about);
   header.append(modeContainer);
   header.append(settingsContainer);
   return header;

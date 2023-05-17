@@ -10,7 +10,7 @@ const getResultList = () => {
   return resultsList;
 };
 
-const closePopup = (event) => {
+const closeModal = (event) => {
   if (!event.target.closest('.modal')) {
     document.querySelector('.overlay').remove();
     document.body.style.overflow = '';
@@ -25,10 +25,10 @@ const generateOverlay = () => {
   overlay.classList.add('overlay');
   document.body.append(overlay);
   document.body.style.overflow = 'hidden';
-  overlay.addEventListener('click', closePopup);
+  overlay.addEventListener('click', closeModal);
 };
 
-const generateModal = () => {
+const generateResultModal = () => {
   generateOverlay();
   const overlay = document.querySelector('.overlay');
   const title = document.createElement('h2');
@@ -54,4 +54,4 @@ const generateModal = () => {
   overlay.append(list);
 };
 
-export { generateModal, closePopup };
+export { generateResultModal, generateOverlay, closeModal };
