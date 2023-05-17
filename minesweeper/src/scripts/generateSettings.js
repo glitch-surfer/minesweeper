@@ -7,7 +7,7 @@ const generateSettings = () => {
   modeContainer.addEventListener('click', modeSwitcher);
 
   const easyMode = document.createElement('span');
-  easyMode.textContent = 'Ease';
+  easyMode.textContent = 'Easy';
   easyMode.classList.add('easy-mode');
   modeContainer.append(easyMode);
 
@@ -21,7 +21,8 @@ const generateSettings = () => {
   suicideMode.classList.add('suicide-mode');
   modeContainer.append(suicideMode);
 
-  const mineCountDisplay = document.createElement('span');
+  const mineCountDisplay = document.createElement('p');
+  mineCountDisplay.classList.add('settings-subtitle');
   mineCountDisplay.textContent = 'Mines:';
   modeContainer.append(mineCountDisplay);
 

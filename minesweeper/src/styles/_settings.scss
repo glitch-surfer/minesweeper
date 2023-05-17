@@ -1,10 +1,29 @@
 .header {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 }
 
 .mode {
+  margin-bottom: 3px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+
+  span {
+    @extend %mode-btn;
+  }
+
+}
+
+span.suicide-mode {
+  margin-right: auto;
+}
+
+.settings-subtitle {
+  margin-right: 3px;
+
+  .dark-theme & {
+    color: $dark-text-color;
+  }
 }
 
 .settings {
