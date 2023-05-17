@@ -32,7 +32,7 @@ const generateSettings = () => {
   mineCountSelector.setAttribute('max', '99');
   mineCountSelector.addEventListener('input', (event) => {
     document.querySelector('.counter').textContent = `Mines count: ${event.target.value}`;
-    document.minesCount = event.target.value;
+    document.minesCount = +event.target.value;
     resetGame();
   });
   modeContainer.append(mineCountSelector);
