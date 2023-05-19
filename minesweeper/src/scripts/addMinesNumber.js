@@ -21,6 +21,7 @@ const getSurround = () => {
   for (let y = 0; y < matrix[0].length; y += 1) {
     for (let x = 0; x < matrix[0].length; x += 1) {
       const arr = [];
+      // test [y]?. -unnecessary ?.
       arr.push(matrix[y - 1]?.[x]);
       arr.push(matrix[y - 1]?.[x + 1]);
       arr.push(matrix[y - 1]?.[x - 1]);

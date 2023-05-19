@@ -42,26 +42,19 @@ span.suicide-mode {
   padding: 5px;
   font-size: 1.5rem;
 
-  body.win & {
+  .win & {
     color: $win-color;
   }
 }
 
-input[type="checkbox"] {
+.sound-switcher {
   display: none;
 }
 
-input[type="range"] {
+.mine-counter-selector {
   width: 80px;
   border-radius: 10px;
-
-  &:hover {
-    box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.2);
-  }
-
-  body.dark-theme &:hover {
-    box-shadow: 0px 0px 12px 7px rgba(202, 183, 120, 0.2)
-  }
+  @extend %functional-btn-box-shadow;
 }
 
 label:has(.sound-switcher) {
@@ -71,15 +64,8 @@ label:has(.sound-switcher) {
   background-color: transparent;
   cursor: pointer;
   border-radius: 50%;
+  @extend %functional-btn-box-shadow;
 
-  &:hover {
-    box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.2);
-  }
-
-  .dark-theme &:hover {
-    box-shadow: 0px 0px 12px 7px rgba(202, 183, 120, 0.2)
-  }
-  
   span {
     display: inline-block;
     width: 30px;
@@ -96,15 +82,7 @@ label:has(.sound-switcher) {
   cursor: pointer;
   border-radius: 50%;
   transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.2);
-  }
-
-  &.is-dark:hover {
-    box-shadow: 0px 0px 12px 7px rgba(202, 183, 120, 0.2)
-  }
-
+  @extend %functional-btn-box-shadow;
 }
 
 .is-dark {
@@ -121,7 +99,7 @@ label:has(.sound-switcher) {
   /* font-size: inherit;
   color: inherit;
   font-family: inherit;
-  cursor: pointer;
+  cursor: pointer;$dark-box-shadow-color
   @extend %display;
 
   &:hover {
@@ -130,7 +108,7 @@ label:has(.sound-switcher) {
   }
 
   body.dark-theme &:hover {
-    box-shadow: 0px 0px 12px 7px rgba(202, 183, 120, 0.2)
+    box-shadow: 0px 0px 12px 7px $dark-box-shadow-color;
   }
  */
 }

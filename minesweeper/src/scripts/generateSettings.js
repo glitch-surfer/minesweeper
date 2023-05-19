@@ -1,10 +1,10 @@
 import resetGame from './resetGame';
-import modeSwitcher from './modeSwitcher';
+import modeHandler from './modeHandler';
 
 const generateSettings = () => {
   const modeContainer = document.createElement('div');
   modeContainer.classList.add('mode');
-  modeContainer.addEventListener('click', modeSwitcher);
+  modeContainer.addEventListener('click', modeHandler);
 
   const about = document.createElement('span');
   about.textContent = 'About';
@@ -31,6 +31,7 @@ const generateSettings = () => {
   modeContainer.append(mineCountDisplay);
 
   const mineCountSelector = document.createElement('input');
+  mineCountSelector.classList.add('mine-counter-selector');
   mineCountSelector.setAttribute('type', 'range');
   mineCountSelector.setAttribute('value', '10');
   mineCountSelector.setAttribute('min', '10');

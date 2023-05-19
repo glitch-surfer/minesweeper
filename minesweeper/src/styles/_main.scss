@@ -7,7 +7,7 @@
   border: 7px solid $border-color;
   border-style: outset;
 
-  body.dark-theme & {
+  .dark-theme & {
     background-color: $dark-board-background-color;
     border: 7px solid $dark-border-color;
     border-style: outset;

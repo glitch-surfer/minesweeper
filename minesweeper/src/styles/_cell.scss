@@ -17,12 +17,10 @@
   }
 
   &.is-open {
-    background-color: transparent;
-    border: 1px solid grey;
+    @extend %cell-is-open;
 
     .dark-theme & {
-      background-color: transparent;
-      border: 1px solid grey;
+      @extend %cell-is-open;
     }
   }
 
@@ -62,8 +60,7 @@
 }
 
 .cell:has(.bomb) {
-  background-color: transparent;
-  border: 1px solid grey;
+  @extend %cell-is-open;
 }
 
 [data-number="1"] {
