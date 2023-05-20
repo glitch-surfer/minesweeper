@@ -1,5 +1,11 @@
+import playClickSound from './playClickSound';
+
 const saveGame = () => {
-  if (!document.querySelector('.bomb') && !document.body.classList.contains('win')) {
+  if (!document.querySelector('.bomb')
+  && !document.body.classList.contains('win')
+  && document.querySelector('.isBomb')) {
+    playClickSound();
+
     const main = document.querySelector('.main');
     const html = main.innerHTML;
     const layoutState = [...document.body.classList];

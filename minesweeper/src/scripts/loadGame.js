@@ -3,8 +3,11 @@ import openCell from './openCell';
 import setFlag from './setFlag';
 import gameOver from './gameOver';
 import setTimer from './timer';
+import playClickSound from './playClickSound';
 
 const loadGame = () => {
+  playClickSound();
+
   if (localStorage.getItem('savedGame')) {
     clearInterval(document.timer);
 

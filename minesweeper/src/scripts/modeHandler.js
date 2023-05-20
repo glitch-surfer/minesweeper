@@ -1,6 +1,9 @@
 import resetGame from './resetGame';
+import playClickSound from './playClickSound';
 
 const modeHandler = (event) => {
+  playClickSound();
+
   if (event.target.classList.contains('easy-mode')) {
     document.boardSize = 10;
     document.body.classList.remove('medium-layout');

@@ -1,6 +1,9 @@
 import generateOverlay from './generateResultModal';
+import playClickSound from './playClickSound';
 
 const generateAboutModal = () => {
+  playClickSound();
+
   generateOverlay();
   const overlay = document.querySelector('.overlay');
 

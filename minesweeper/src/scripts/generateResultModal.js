@@ -1,4 +1,5 @@
 import generateOverlay from './generateOverlay';
+import playClickSound from './playClickSound';
 
 const getResultList = () => {
   const gameId = +localStorage.getItem('gameId');
@@ -12,6 +13,8 @@ const getResultList = () => {
 };
 
 const generateResultModal = () => {
+  playClickSound();
+
   generateOverlay();
   const overlay = document.querySelector('.overlay');
   const title = document.createElement('h2');

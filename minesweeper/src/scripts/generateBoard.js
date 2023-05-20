@@ -4,6 +4,7 @@ import setFlag from './setFlag';
 import firstStep from './firstStep';
 import generateControlsPanel from './generateControlsPanel';
 import generateMain from './generateMain';
+import playClickSound from './playClickSound';
 
 export const addListeners = () => {
   const board = document.getElementById('board');
@@ -24,6 +25,8 @@ const generateBoard = () => {
   addListeners();
 
   const resetGame = () => {
+    playClickSound();
+
     clearInterval(document.timer);
     document.querySelector('.timer').textContent = 'Timer: 0 sec';
     document.querySelector('main').remove();
