@@ -33,13 +33,13 @@
   display: flex;
   align-items: center;
 
-  span {
+  button {
     @extend %mode-btn;
   }
 
 }
 
-span.suicide-mode {
+button.suicide-mode {
   margin-right: auto;
 }
 

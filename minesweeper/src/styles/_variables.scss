@@ -34,10 +34,12 @@ $dark-box-shadow-color: rgba(202, 183, 120, 0.2);
   display: inline-block;
   padding: 2px;
   margin-right: 10px;
+  font: inherit;
   color: $dark-board-background-color;
   border: 2px solid $dark-board-background-color;
   border-radius: 4px;
   cursor: pointer;
+  background-color: transparent;
 
   .dark-theme & {
     color: $dark-text-color;

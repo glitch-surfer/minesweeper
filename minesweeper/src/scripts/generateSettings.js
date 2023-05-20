@@ -7,19 +7,19 @@ const generateSettings = () => {
   const loadGameContainer = document.createElement('div');
   loadGameContainer.classList.add('load-game-container');
 
-  const save = document.createElement('span');
+  const save = document.createElement('button');
   save.textContent = 'Save';
   save.classList.add('save');
   save.addEventListener('click', saveGame);
   loadGameContainer.append(save);
 
-  const load = document.createElement('span');
+  const load = document.createElement('button');
   load.textContent = 'Load';
   load.classList.add('load');
   load.addEventListener('click', loadGame);
   loadGameContainer.append(load);
 
-  const about = document.createElement('span');
+  const about = document.createElement('button');
   about.textContent = 'About';
   about.classList.add('about__btn');
   loadGameContainer.append(about);
@@ -28,17 +28,17 @@ const generateSettings = () => {
   modeContainer.classList.add('mode');
   modeContainer.addEventListener('click', modeHandler);
 
-  const easyMode = document.createElement('span');
+  const easyMode = document.createElement('button');
   easyMode.textContent = 'Easy';
   easyMode.classList.add('easy-mode');
   modeContainer.append(easyMode);
 
-  const mediumMode = document.createElement('span');
+  const mediumMode = document.createElement('button');
   mediumMode.textContent = 'Medium';
   mediumMode.classList.add('medium-mode');
   modeContainer.append(mediumMode);
 
-  const suicideMode = document.createElement('span');
+  const suicideMode = document.createElement('button');
   suicideMode.textContent = 'Suicide';
   suicideMode.classList.add('suicide-mode');
   modeContainer.append(suicideMode);
