@@ -5,6 +5,15 @@ import firstStep from './firstStep';
 import generateControlsPanel from './generateControlsPanel';
 import generateMain from './generateMain';
 
+export const addListeners = () => {
+  const board = document.getElementById('board');
+
+  board.addEventListener('click', firstStep);
+  board.addEventListener('click', openCell);
+  board.addEventListener('click', gameOver);
+  board.addEventListener('contextmenu', setFlag);
+};
+
 const generateBoard = () => {
   document.movesCount = 0;
 
@@ -12,12 +21,7 @@ const generateBoard = () => {
   main.prepend(generateControlsPanel());
   document.body.append(main);
 
-  const board = document.getElementById('board');
-
-  board.addEventListener('click', firstStep);
-  board.addEventListener('click', openCell);
-  board.addEventListener('click', gameOver);
-  board.addEventListener('contextmenu', setFlag);
+  addListeners();
 
   const resetGame = () => {
     clearInterval(document.timer);
@@ -26,7 +30,6 @@ const generateBoard = () => {
     document.body.classList.remove('win');
     generateBoard();
   };
-
   // reset game
   document.querySelector('.btn').addEventListener('click', resetGame);
 };
