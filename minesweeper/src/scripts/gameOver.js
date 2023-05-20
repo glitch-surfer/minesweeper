@@ -5,7 +5,8 @@ import setResult from './setResult';
 
 const gameOver = (event) => {
   const btn = document.querySelector('.btn');
-  const board = document.querySelector('.board');
+
+  const soundSwitcher = document.querySelector('.sound-switcher');
 
   if (event.target.textContent !== '🚩') {
     if (event.target.classList.contains('isBomb')) {
@@ -18,7 +19,7 @@ const gameOver = (event) => {
         item.textContent = '';
         item.append(bomb);
       });
-      if (document.querySelector('.sound-switcher').checked) {
+      if (soundSwitcher.checked) {
         new Audio('../src/assets/sounds/bomb.mp3').play();
       }
       event.target.firstElementChild.style.backgroundColor = 'red';
@@ -26,31 +27,33 @@ const gameOver = (event) => {
       clearInterval(document.timer);
       btn.textContent = '😩';
 
-      board.removeEventListener('click', openCell);
-      board.removeEventListener('contextmenu', setFlag);
-      board.removeEventListener('click', gameOver);
-      board.removeEventListener('click', saveGame);
+      removeListeners();
     } else {
       const cells = document.querySelectorAll('.cell');
       const closedCells = [...cells].filter((item) => !item.classList.contains('is-open'));
 
       if (closedCells.length === document.minesCount) {
-        if (document.querySelector('.sound-switcher').checked) {
+        if (soundSwitcher.checked) {
           new Audio('../src/assets/sounds/win.mp3').play();
         }
         clearInterval(document.timer);
         btn.textContent = '🤩';
         document.body.classList.add('win');
 
-        board.removeEventListener('click', openCell);
-        board.removeEventListener('click', gameOver);
-        board.removeEventListener('contextmenu', setFlag);
-        board.removeEventListener('click', saveGame);
-
+        removeListeners();
         setResult();
       }
     }
   }
 };
+
+function removeListeners() {
+  const board = document.querySelector('.board');
+
+  board.removeEventListener('click', openCell);
+  board.removeEventListener('contextmenu', setFlag);
+  board.removeEventListener('click', gameOver);
+  board.removeEventListener('click', saveGame);
+}
 
 export default gameOver;
