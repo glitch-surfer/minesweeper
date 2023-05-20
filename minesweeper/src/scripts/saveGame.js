@@ -1,14 +1,29 @@
 const saveGame = () => {
-  const main = document.querySelector('.main');
-  const html = main.outerHTML;
-  const savedData = { html };
-  const jsonData = JSON.stringify(savedData);
+  if (!document.querySelector('.bomb') && !document.body.classList.contains('win')) {
+    const main = document.querySelector('.main');
+    const html = main.innerHTML;
+    const layoutState = [...document.body.classList];
+    const timer = parseInt(document.querySelector('.timer').textContent.slice(6), 10);
+    const {
+      boardSize,
+      minesCount,
+      movesCount,
+      flagCount,
+    } = document;
 
-  
-  /* localStorage.clear(); */
-  /* const savedGame = localStorage.getItem('savedGame') || null; */
-  localStorage.setItem('savedGame', jsonData);
-  /* console.log(localStorage.getItem('savedGame')); */
+    const savedData = {
+      html,
+      layoutState,
+      boardSize,
+      minesCount,
+      movesCount,
+      flagCount,
+      timer,
+    };
+
+    const jsonData = JSON.stringify(savedData);
+    localStorage.setItem('savedGame', jsonData);
+  }
 };
 
 export default saveGame;

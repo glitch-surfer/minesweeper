@@ -4,7 +4,6 @@ const open = (item) => {
   const cell = item;
   cell.classList.add('is-open');
   cell.textContent = cell.dataset.number;
-  /* cell.isOpen = true; */
 };
 
 const openAdditionalCell = (event) => {

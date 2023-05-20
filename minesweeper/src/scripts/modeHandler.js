@@ -1,22 +1,5 @@
 import resetGame from './resetGame';
 
-/* const switchGame = (event, boardSize) => {
-  const mode = event.target.classList.slice(-4, 0);
-  document.boardSize = boardSize;
-  document.body.classList.remove('medium-layout');
-  document.body.classList.remove('suicide-layout');
-  document.body.classList.add(`${mode}`)
-  const mineCouner = document.querySelector('.mine-counter-selector')
-  mineCouner.value = 10;
-
-  let minesCount;
-  if (boardSize === 10) minesCount = 10;
-  else if (boardSize === 15) minesCount = 25;
-  else minesCount = 99;
-
-  document.minesCount = minesCount;
-}; */
-
 const modeHandler = (event) => {
   if (event.target.classList.contains('easy-mode')) {
     document.boardSize = 10;

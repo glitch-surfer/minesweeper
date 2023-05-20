@@ -6,7 +6,7 @@ const setFlag = (event) => {
   if (cell.classList.contains('cell') && !cell.classList.contains('is-open')) {
     const audio = new Audio('../src/assets/sounds/flag.mp3');
 
-    if (!cell.closest('.cell').textContent) {
+    if (!cell.textContent) {
       if (document.querySelector('.sound-switcher').checked) {
         audio.play();
       }

@@ -1,6 +1,7 @@
 import resetGame from './resetGame';
 import modeHandler from './modeHandler';
 import saveGame from './saveGame';
+import loadGame from './loadGame';
 
 const generateSettings = () => {
   const modeContainer = document.createElement('div');
@@ -11,6 +12,11 @@ const generateSettings = () => {
   save.textContent = 'Save';
   save.classList.add('save');
   save.addEventListener('click', saveGame);
+
+  const load = document.createElement('span');
+  load.textContent = 'Load';
+  load.classList.add('load');
+  load.addEventListener('click', loadGame);
 
   const about = document.createElement('span');
   about.textContent = 'About';
@@ -84,6 +90,7 @@ const generateSettings = () => {
   const header = document.createElement('header');
   header.classList.add('header');
   header.append(save);
+  header.append(load);
   header.append(about);
   header.append(modeContainer);
   header.append(settingsContainer);

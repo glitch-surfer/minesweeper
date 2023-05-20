@@ -1,5 +1,5 @@
-const setTimer = () => {
-  let seconds = 0;
+const setTimer = (start = 0) => {
+  let seconds = start;
 
   document.timer = setInterval(() => {
     document.querySelector('.timer').innerHTML = `Timer: ${seconds += 1} sec`;

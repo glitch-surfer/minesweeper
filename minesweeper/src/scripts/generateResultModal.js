@@ -1,3 +1,5 @@
+import generateOverlay from './generateOverlay';
+
 const getResultList = () => {
   const gameId = +localStorage.getItem('gameId');
 
@@ -6,26 +8,7 @@ const getResultList = () => {
     const item = localStorage.getItem(gameId - i);
     resultsList.push(item);
   }
-  /* localStorage.clear() */
   return resultsList;
-};
-
-const closeModal = (event) => {
-  if (!event.target.closest('.modal')) {
-    document.querySelector('.overlay').remove();
-    document.body.style.overflow = '';
-  } else if (event.target.closest('.btn-modal')) {
-    document.querySelector('.overlay').remove();
-    document.body.style.overflow = '';
-  }
-};
-
-const generateOverlay = () => {
-  const overlay = document.createElement('div');
-  overlay.classList.add('overlay');
-  document.body.append(overlay);
-  document.body.style.overflow = 'hidden';
-  overlay.addEventListener('click', closeModal);
 };
 
 const generateResultModal = () => {
@@ -54,4 +37,4 @@ const generateResultModal = () => {
   overlay.append(list);
 };
 
-export { generateResultModal, generateOverlay, closeModal };
+export default generateResultModal;

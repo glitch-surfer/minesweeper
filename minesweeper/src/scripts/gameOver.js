@@ -1,4 +1,5 @@
 import openCell from './openCell';
+import saveGame from './saveGame';
 import setFlag from './setFlag';
 import setResult from './setResult';
 
@@ -28,9 +29,10 @@ const gameOver = (event) => {
       board.removeEventListener('click', openCell);
       board.removeEventListener('contextmenu', setFlag);
       board.removeEventListener('click', gameOver);
+      board.removeEventListener('click', saveGame);
     } else {
       const cells = document.querySelectorAll('.cell');
-      const closedCells = [...cells].filter((item) => !item.isOpen);
+      const closedCells = [...cells].filter((item) => !item.classList.contains('is-open'));
 
       if (closedCells.length === document.minesCount) {
         if (document.querySelector('.sound-switcher').checked) {
@@ -43,6 +45,7 @@ const gameOver = (event) => {
         board.removeEventListener('click', openCell);
         board.removeEventListener('click', gameOver);
         board.removeEventListener('contextmenu', setFlag);
+        board.removeEventListener('click', saveGame);
 
         setResult();
       }

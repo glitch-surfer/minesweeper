@@ -1,5 +1,4 @@
-import { closeModal } from './generateResultModal';
-import { generateOverlay } from './generateResultModal';
+import generateOverlay from './generateResultModal';
 
 const generateAboutModal = () => {
   generateOverlay();
