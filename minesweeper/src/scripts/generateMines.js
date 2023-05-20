@@ -19,7 +19,7 @@ const generateMines = (minesCount, event) => {
 
   const minedCells = [...cells].filter((item, index) => randomNumberArr.includes(index));
 
-  minedCells.forEach((item) => item.isBomb = true);
+  minedCells.forEach((item) => item.classList.add('isBomb'));
 };
 
 export default generateMines;

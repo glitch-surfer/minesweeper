@@ -3,7 +3,7 @@ const setFlag = (event) => {
   const counter = document.querySelector('.counter');
   event.preventDefault();
 
-  if (cell.classList.contains('cell') && !cell.isOpen) {
+  if (cell.classList.contains('cell') && !cell.classList.contains('is-open')) {
     const audio = new Audio('../src/assets/sounds/flag.mp3');
 
     if (!cell.closest('.cell').textContent) {

@@ -4,7 +4,7 @@ const open = (item) => {
   const cell = item;
   cell.classList.add('is-open');
   cell.textContent = cell.dataset.number;
-  cell.isOpen = true;
+  /* cell.isOpen = true; */
 };
 
 const openAdditionalCell = (event) => {
@@ -40,7 +40,7 @@ const openAdditionalCell = (event) => {
   const normalizedArr = arr.filter((item) => item && item.textContent !== '🚩');
 
   normalizedArr.forEach((item) => {
-    if (!item.dataset.number && !item.isOpen) {
+    if (!item.dataset.number && !item.classList.contains('is-open')) {
       openAdditionalCell(item);
     } else {
       open(item);
@@ -54,8 +54,8 @@ const openAdditionalCell = (event) => {
 
 const openCell = (event) => {
   const cell = event.target;
-  if (cell.classList.contains('cell') && !cell.isBomb && !cell.textContent) {
-    if (!cell.isOpen) {
+  if (cell.classList.contains('cell') && !cell.classList.contains('isBomb') && !cell.textContent) {
+    if (!cell.classList.contains('is-open')) {
       document.querySelector('.moves-count').innerHTML = `Your moves: ${document.movesCount += 1}`;
 
       if (document.querySelector('.sound-switcher').checked) {
