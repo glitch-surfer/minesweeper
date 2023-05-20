@@ -4,23 +4,29 @@ import saveGame from './saveGame';
 import loadGame from './loadGame';
 
 const generateSettings = () => {
-  const modeContainer = document.createElement('div');
-  modeContainer.classList.add('mode');
-  modeContainer.addEventListener('click', modeHandler);
+  const loadGameContainer = document.createElement('div');
+  loadGameContainer.classList.add('load-game-container');
 
   const save = document.createElement('span');
   save.textContent = 'Save';
   save.classList.add('save');
   save.addEventListener('click', saveGame);
+  loadGameContainer.append(save);
 
   const load = document.createElement('span');
   load.textContent = 'Load';
   load.classList.add('load');
   load.addEventListener('click', loadGame);
+  loadGameContainer.append(load);
 
   const about = document.createElement('span');
   about.textContent = 'About';
   about.classList.add('about__btn');
+  loadGameContainer.append(about);
+
+  const modeContainer = document.createElement('div');
+  modeContainer.classList.add('mode');
+  modeContainer.addEventListener('click', modeHandler);
 
   const easyMode = document.createElement('span');
   easyMode.textContent = 'Easy';
@@ -89,9 +95,7 @@ const generateSettings = () => {
 
   const header = document.createElement('header');
   header.classList.add('header');
-  header.append(save);
-  header.append(load);
-  header.append(about);
+  header.append(loadGameContainer);
   header.append(modeContainer);
   header.append(settingsContainer);
   return header;

@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+  @include media-mobile-small {
+    font-size: 3.5vw;
+  }
+}
+
 body {
   margin-top: 10px;
   background: $main-background-color;

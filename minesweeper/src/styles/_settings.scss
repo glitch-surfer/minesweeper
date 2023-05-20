@@ -4,18 +4,32 @@
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
+  gap: 0.4rem;
   font-size: 1.5rem;
 }
 
-.about__btn {
-  align-self: flex-end;
-  @extend %mode-btn;
+.load-game-container {
+  padding: 0 0.3rem;
+  display: flex;
+  align-items: center;
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+}
+
+.about__btn {
+  @extend %mode-btn;
+}
+
+.save {
+  @extend %mode-btn;
+}
+
+.load {
+  @extend %mode-btn;
+  margin-right: auto;
 }
 
 .mode {
-  margin-bottom: 3px;
+  padding: 0 0.3rem;
   display: flex;
   align-items: center;
 
@@ -55,6 +69,10 @@ span.suicide-mode {
   width: 80px;
   border-radius: 10px;
   @extend %functional-btn-box-shadow;
+}
+
+.timer {
+  @extend %display;
 }
 
 label:has(.sound-switcher) {
@@ -111,8 +129,4 @@ label:has(.sound-switcher) {
     box-shadow: 0px 0px 12px 7px $dark-box-shadow-color;
   }
  */
-}
-
-.timer {
-  @extend %display;
 }

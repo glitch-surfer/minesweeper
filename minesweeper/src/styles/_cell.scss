@@ -1,18 +1,18 @@
 .cell {
-  width: 43px;
-  height: 43px;
+  width: 2.6875rem;
+  height: 2.6875rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   background-color: $board-background-color;
-  border: 5px solid $border-color;
+  border: 0.3125rem solid $border-color;
   border-style: outset;
   cursor: pointer;
 
   .dark-theme & {
     background-color: $dark-border-color;
-    border: 5px solid $dark-board-background-color;
+    border: 0.3125rem solid $dark-board-background-color;
     border-style: outset;
   }
 
@@ -25,14 +25,14 @@
   }
 
   .medium-layout & {
-    width: 28px;
-    height: 28px;
+    width: 1.75rem;
+    height: 1.75rem;
     font-size: 1.2rem;
   }
 
   .suicide-layout & {
-    width: 17px;
-    height: 17px;
+    width: 1.0625rem;
+    height: 1.0625rem;
     font-size: 1rem;
   }
 }
@@ -40,21 +40,21 @@
 .bomb {
   background: url('../assets/img/mine_icon.svg') center no-repeat transparent;
   background-size: cover;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
 
   .dark-theme & {
     background-color: $dark-bomb-background;
   }
 
   .medium-layout & {
-    width: 25px;
-    height: 25px;
+    width: 1.5625rem;
+    height: 1.5625rem;
   }
 
   .suicide-layout & {
-    width: 15px;
-    height: 15px;
+    width: 0.9375rem;
+    height: 0.9375rem;
   }
 
 }
