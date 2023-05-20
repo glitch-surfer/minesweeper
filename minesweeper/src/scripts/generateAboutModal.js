@@ -1,4 +1,4 @@
-import generateOverlay from './generateResultModal';
+import generateOverlay from './generateOverlay';
 import playClickSound from './playClickSound';
 
 const generateAboutModal = () => {

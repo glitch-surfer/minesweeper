@@ -27,7 +27,7 @@
 .modal {
   position: absolute;
   z-index: 10;
-  max-width: 70%;
+  max-width: 85%;
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
@@ -35,6 +35,10 @@
   gap: 10px;
   background: lighten($board-background-color, 20%);
   border-radius: 9px;
+
+  li {
+    min-width: 300px;
+  }
 
   .dark-theme & {
     background: lighten($dark-board-background-color, 10%);
