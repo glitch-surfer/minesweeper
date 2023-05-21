@@ -1,0 +1,56 @@
+import openCell from './openCell';
+import saveGame from './saveGame';
+import setFlag from './setFlag';
+import setResult from './setResult';
+
+const gameOver = (event) => {
+  const btn = document.querySelector('.btn');
+  const board = document.querySelector('.board');
+
+  if (event.target.textContent !== '🚩') {
+    if (event.target.classList.contains('isBomb')) {
+      const bombs = [...document.querySelectorAll('.cell')].filter((item) => item.classList.contains('isBomb'));
+
+      bombs.forEach((item) => {
+        const bomb = document.createElement('div');
+        bomb.classList.add('bomb');
+        item.classList.add('is-open');
+        item.textContent = '';
+        item.append(bomb);
+      });
+      if (document.querySelector('.sound-switcher').checked) {
+        new Audio('../src/assets/sounds/bomb.mp3').play();
+      }
+      event.target.firstElementChild.style.backgroundColor = 'red';
+
+      clearInterval(document.timer);
+      btn.textContent = '😩';
+
+      board.removeEventListener('click', openCell);
+      board.removeEventListener('contextmenu', setFlag);
+      board.removeEventListener('click', gameOver);
+      board.removeEventListener('click', saveGame);
+    } else {
+      const cells = document.querySelectorAll('.cell');
+      const closedCells = [...cells].filter((item) => !item.classList.contains('is-open'));
+
+      if (closedCells.length === document.minesCount) {
+        if (document.querySelector('.sound-switcher').checked) {
+          new Audio('../src/assets/sounds/win.mp3').play();
+        }
+        clearInterval(document.timer);
+        btn.textContent = '🤩';
+        document.body.classList.add('win');
+
+        board.removeEventListener('click', openCell);
+        board.removeEventListener('click', gameOver);
+        board.removeEventListener('contextmenu', setFlag);
+        board.removeEventListener('click', saveGame);
+
+        setResult();
+      }
+    }
+  }
+};
+
+export default gameOver;

@@ -1,0 +1,132 @@
+.header {
+  max-width: 448px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1.5rem;
+}
+
+.load-game-container {
+  padding: 0 0.3rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.about__btn {
+  @extend %mode-btn;
+}
+
+.save {
+  @extend %mode-btn;
+}
+
+.load {
+  @extend %mode-btn;
+  margin-right: auto;
+}
+
+.mode {
+  padding: 0 0.3rem;
+  display: flex;
+  align-items: center;
+
+  button {
+    @extend %mode-btn;
+  }
+
+}
+
+button.suicide-mode {
+  margin-right: auto;
+}
+
+.settings-subtitle {
+  margin-right: 3px;
+  color: $dark-board-background-color;
+
+  .dark-theme & {
+    color: $dark-text-color;
+  }
+}
+
+.settings {
+  padding: 5px;
+  font-size: 1.5rem;
+
+  .win & {
+    color: $win-color;
+  }
+}
+
+.sound-switcher {
+  display: none;
+}
+
+.mine-counter-selector {
+  width: 80px;
+  border-radius: 10px;
+  @extend %functional-btn-box-shadow;
+}
+
+.timer {
+  @extend %display;
+}
+
+label:has(.sound-switcher) {
+  width: 30px;
+  height: 30px;
+  font-size: 1.6rem;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  @extend %functional-btn-box-shadow;
+
+  span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.theme-switcher {
+  width: 30px;
+  height: 30px;
+  background: url('../assets/img/free-icon-day-and-night-8295128.png') center no-repeat transparent;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+  @extend %functional-btn-box-shadow;
+}
+
+.is-dark {
+  transform: rotate((180deg));
+
+}
+
+
+.btn-results {
+  background-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  @extend %mode-btn;
+  /* font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;$dark-box-shadow-color
+  @extend %display;
+
+  &:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  body.dark-theme &:hover {
+    box-shadow: 0px 0px 12px 7px $dark-box-shadow-color;
+  }
+ */
+}

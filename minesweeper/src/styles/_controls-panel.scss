@@ -1,0 +1,43 @@
+.controls-panel {
+  width: 100%;
+  padding: 3px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  color: $controls-panel-text-color;
+  background-color: $board-background-color;
+  border: 7px solid $border-color;
+  border-style: outset;
+
+  .win & {
+    color: $win-color;
+  }
+
+  .dark-theme & {
+    background-color: $dark-board-background-color;
+    border: 7px solid $dark-border-color;
+    border-style: outset;
+  }
+
+}
+
+.moves-count {
+  @extend %display
+}
+
+.btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.3rem;
+  cursor: pointer;
+  border-radius: 50%;
+  @extend %functional-btn-box-shadow;
+}
+
+.counter {
+  @extend %display
+}
