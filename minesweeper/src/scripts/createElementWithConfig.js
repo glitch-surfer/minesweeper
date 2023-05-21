@@ -1,6 +1,6 @@
 const createElementWithConfig = (config) => {
   const {
-    tagName, classes, attributes, textContent, children, eventListeners,
+    tagName, classes, attributes, textContent, children,
   } = config;
 
   const element = document.createElement(tagName);
