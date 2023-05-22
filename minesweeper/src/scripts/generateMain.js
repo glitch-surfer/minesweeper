@@ -1,14 +1,27 @@
+import createElementWithConfig from './createElementWithConfig';
+
 const generateMain = () => {
-  const main = document.createElement('main');
-  main.classList.add('main');
+  const mainConfig = {
+    tagName: 'main',
+    classes: ['main'],
+  };
+  const main = createElementWithConfig(mainConfig);
 
-  const board = document.createElement('div');
-  board.classList.add('board');
-  board.setAttribute('id', 'board');
+  const boardConfig = {
+    tagName: 'div',
+    classes: ['board'],
+    attributes: {
+      id: 'board',
+    },
+  };
+  const board = createElementWithConfig(boardConfig);
 
+  const cellConfig = {
+    tagName: 'div',
+    classes: ['cell'],
+  };
   for (let i = 0; i < document.boardSize ** 2; i += 1) {
-    const cell = document.createElement('div');
-    cell.classList.add('cell');
+    const cell = createElementWithConfig(cellConfig);
     board.append(cell);
   }
 

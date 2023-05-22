@@ -2,8 +2,8 @@ import playClickSound from './playClickSound';
 
 const saveGame = () => {
   if (!document.querySelector('.bomb')
-  && !document.body.classList.contains('win')
-  && document.querySelector('.isBomb')) {
+    && !document.body.classList.contains('win')
+    && document.querySelector('.isBomb')) {
     playClickSound();
 
     const main = document.querySelector('.main');
@@ -11,20 +11,11 @@ const saveGame = () => {
     const layoutState = [...document.body.classList];
     const timer = parseInt(document.querySelector('.timer').textContent.slice(6), 10);
     const {
-      boardSize,
-      minesCount,
-      movesCount,
-      flagCount,
+      boardSize, minesCount, movesCount, flagCount,
     } = document;
 
     const savedData = {
-      html,
-      layoutState,
-      boardSize,
-      minesCount,
-      movesCount,
-      flagCount,
-      timer,
+      html, layoutState, boardSize, minesCount, movesCount, flagCount, timer,
     };
 
     const jsonData = JSON.stringify(savedData);

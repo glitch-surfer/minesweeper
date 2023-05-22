@@ -1,5 +1,6 @@
 import generateOverlay from './generateOverlay';
 import playClickSound from './playClickSound';
+import createElementWithConfig from './createElementWithConfig';
 
 const getResultList = () => {
   const gameId = +localStorage.getItem('gameId');
@@ -17,23 +18,37 @@ const generateResultModal = () => {
 
   generateOverlay();
   const overlay = document.querySelector('.overlay');
-  const title = document.createElement('h2');
-  title.classList.add('modal-title');
-  title.textContent = 'Latest Results';
+
+  const titleConfig = {
+    tagName: 'h2',
+    classes: ['modal-title'],
+    textContent: 'Latest Results',
+  };
+  const title = createElementWithConfig(titleConfig);
   overlay.append(title);
 
   const resultsList = getResultList();
-  const list = document.createElement('ul');
-  list.classList.add('modal');
 
-  const modalBtn = document.createElement('button');
-  modalBtn.classList.add('btn-modal');
-  modalBtn.textContent = '✖';
-  list.append(modalBtn);
+  const listConfig = {
+    tagName: 'ul',
+    classes: ['modal'],
+  };
+  const list = createElementWithConfig(listConfig);
+
+  const btnConfig = {
+    tagName: 'button',
+    classes: ['btn-modal'],
+    textContent: '✖',
+  };
+  const btn = createElementWithConfig(btnConfig);
+  list.append(btn);
 
   resultsList.forEach((item) => {
-    const li = document.createElement('li');
-    li.textContent = item;
+    const liConfig = {
+      tagName: 'li',
+      textContent: item,
+    };
+    const li = createElementWithConfig(liConfig);
     list.append(li);
   });
 

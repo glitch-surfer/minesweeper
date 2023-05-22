@@ -1,24 +1,38 @@
+import createElementWithConfig from './createElementWithConfig';
+
 const generateControlsPanel = () => {
-  const header = document.createElement('div');
-  header.classList.add('controls-panel');
+  const controlsPanelConfig = {
+    tagName: 'div',
+    classes: ['controls-panel'],
+  };
+  const controlsPanel = createElementWithConfig(controlsPanelConfig);
 
-  const movesCount = document.createElement('p');
-  movesCount.classList.add('moves-count');
-  movesCount.textContent = 'Your moves: 0';
-  header.append(movesCount);
+  const movesCountConfig = {
+    tagName: 'p',
+    classes: ['moves-count'],
+    textContent: 'Your moves: 0',
+  };
+  const movesCount = createElementWithConfig(movesCountConfig);
+  controlsPanel.append(movesCount);
 
-  const btn = document.createElement('btn');
-  btn.classList.add('btn');
-  btn.textContent = '😉';
-  header.append(btn);
+  const btnConfig = {
+    tagName: 'button',
+    classes: ['btn'],
+    textContent: '😉',
+  };
+  const btn = createElementWithConfig(btnConfig);
+  controlsPanel.append(btn);
 
   document.flagCount = document.minesCount;
-  const counter = document.createElement('p');
-  counter.classList.add('counter');
-  counter.textContent = `Mines count: ${document.flagCount}`;
-  header.append(counter);
+  const counterConfig = {
+    tagName: 'p',
+    classes: ['counter'],
+    textContent: `Mines count: ${document.flagCount}`,
+  };
+  const counter = createElementWithConfig(counterConfig);
+  controlsPanel.append(counter);
 
-  return header;
+  return controlsPanel;
 };
 
 export default generateControlsPanel;

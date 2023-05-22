@@ -13,13 +13,7 @@ const loadGame = () => {
 
     const savedJson = localStorage.getItem('savedGame');
     const {
-      html,
-      layoutState,
-      boardSize,
-      minesCount,
-      movesCount,
-      flagCount,
-      timer,
+      html, layoutState, boardSize, minesCount, movesCount, flagCount, timer,
     } = JSON.parse(savedJson);
 
     document.minesCount = minesCount;
