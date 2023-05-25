@@ -9,7 +9,7 @@ import playClickSound from './playClickSound';
 export const addListeners = () => {
   const board = document.getElementById('board');
 
-  board.addEventListener('click', firstStep);
+  board.addEventListener('pointerdown', firstStep);
   board.addEventListener('click', openCell);
   board.addEventListener('click', gameOver);
   board.addEventListener('contextmenu', setFlag);
