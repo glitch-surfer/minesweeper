@@ -1,0 +1,44 @@
+@import 'variables';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: $main-font, $paragraph-font, sans-serif;
+    scroll-behavior: smooth;
+}
+
+a,
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+    /* display: inline-block; */
+}
+
+ul,
+ol {
+    list-style: none;
+}
+img,
+svg {
+    max-width: 100%;
+}
+
+.container {
+    max-width: $max-width;
+    margin: auto;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+    @include media-tablet {
+        padding-left: $container-tablet-padding;
+        padding-right: $container-tablet-padding;
+    }
+    @include media-mobile-big {
+        padding-left: $container-mobile-padding;
+        padding-right: $container-mobile-padding;
+    }
+}

@@ -1,0 +1,63 @@
+//sizes
+
+$max-width: 1280px;
+$container-padding: 40px;
+$container-tablet-padding: 30px;
+$container-mobile-padding: 10px;
+$tablet-width: 950px;
+$mobile-width: 767px;
+$mobile-small-width: 450px;
+
+//fonts
+
+$main-font: 'Georgia';
+$paragraph-font: 'Arial';
+
+//colors
+
+$main-color: #F1CDB3;
+$header-text-color: #CDCDCD;
+$text-color: #4C4C4C;
+$white: #FFFFFF;
+$btn-color: #F1CDB3;
+$title-color: #545454;
+$card-color: #FAFAFA;
+$main-background: #F6F6F6;
+$legal-text-color: #B2B2B2;
+$color-dark: #292929;
+$btn-hovered-color: #FDDCC4;
+
+//mixins
+
+@mixin font ($size: 15px, $height: 24px, $weight: 400, $family: $main-font) {
+    font-family: $family;
+    font-size: $size;
+    line-height: $height;
+    font-weight: $weight;
+
+}
+
+//placeholder
+%title {
+    @include font ($size: 35px, $height: 130%);
+    letter-spacing: 0.06em;
+    color: $title-color;
+}
+
+%text {
+    @include font ($family: $paragraph-font)
+}
+%transition {
+    transition: all 0.3s ease-in-out;
+}
+
+//MEDIA
+@mixin media-tablet {
+    @media (max-width: $tablet-width) { @content;}
+}
+@mixin media-mobile-big {
+    @media (max-width: $mobile-width) { @content;}
+}
+@mixin media-mobile-small {
+    @media (max-width: $mobile-small-width) { @content;}
+}

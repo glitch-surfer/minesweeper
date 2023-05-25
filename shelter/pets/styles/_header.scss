@@ -1,0 +1,36 @@
+/* PETS HEADER */
+.header__container {
+    padding-bottom: 31px;
+}
+
+.logo__title {
+    color: $title-color;
+}
+
+.logo__subtitle {
+    color: $color-dark;
+}
+
+.nav__item {
+    color: $title-color;
+    @extend %transition;
+    /* transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out; */
+}
+
+.nav_is-active {
+    color: $color-dark;
+}
+
+.pets-nav-hover {
+    /* transition: border-color 0.2s ease-in-out; */
+    @extend %transition;
+
+    &:hover {
+        color: $color-dark;
+    }
+
+    &:active {
+        color: $title-color;
+        border-color: $main-color;
+    }
+}
