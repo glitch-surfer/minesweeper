@@ -1,0 +1,57 @@
+/* BUTTON */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+    padding: 13px 43px;
+    background: $main-color;
+    border-radius: 100px;
+    @include font ($size: 17px, $height: 130%);
+    letter-spacing: 0.06em;
+    border: 2px solid #F1CDB3;
+    cursor: pointer;
+    white-space: nowrap;
+    /* transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out; */
+    @extend %transition;
+
+    &:hover {
+        background-color: $btn-hovered-color;
+        border-color: $btn-hovered-color;
+    }
+}
+
+.pagination__btn {
+    padding: 0;
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    @include font (20px, 115%);
+    letter-spacing: 0.06em;
+    color: #292929;
+
+    &[disabled] {
+        border-color: $header-text-color;
+        pointer-events: none;
+    }
+}
+
+.pagination__btn_central {
+    background-color: $main-color;
+    border-color: $main-color;
+    pointer-events: none;
+}
+/* .btn__arrow-back {
+    position: absolute;
+    top: 22px;
+    left: 17px;
+}
+
+.btn__arrow-forward {
+    position: absolute;
+    top: 22px;
+    right: 17px;
+} */
+.pagination__btn:disabled path {
+    fill: #CDCDCD;
+}
