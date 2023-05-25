@@ -4,14 +4,13 @@ import setTimer from './timer';
 import openCell from './openCell';
 
 const firstStep = (event) => {
-  if (event.target.textContent !== '🚩') {
+  if (event.target.classList.contains('cell') && event.target.textContent !== '🚩') {
     const board = document.querySelector('.board');
-    board.removeEventListener('pointerdown', firstStep);
+    board.removeEventListener('click', firstStep);
     generateMines(document.minesCount, event);
     addMinesNumber();
     setTimer();
     document.querySelector('.btn').textContent = '😎';
-    openCell(event);
   }
 };
 
